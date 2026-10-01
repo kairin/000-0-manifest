@@ -1,6 +1,6 @@
 # GitHub Repository Manifest
 
-Lists repositories in the kairin GitHub account, with separate records for forks and archived projects.
+Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
 Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-01.<br>
@@ -88,5 +88,3 @@ Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 ---
 
 Forked repositories are listed separately in [FORKS.md](FORKS.md). Archived repositories are listed in [ARCHIVED.md](ARCHIVED.md).
-
-Local inventory refresh: [setup and usage](docs/local-sync.md).

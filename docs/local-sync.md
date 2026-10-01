@@ -32,6 +32,14 @@ systemctl --user enable --now manifest-sync.timer
 systemctl --user list-timers manifest-sync.timer
 ```
 
+Review recent runs, including entries retained from earlier boots, with:
+
+```sh
+journalctl --user -u manifest-sync.service --since '7 days ago' --no-pager
+```
+
+Successful runs report how many repositories were checked and how many pages changed. Errors appear in the same journal. Journal retention follows this computer's systemd settings.
+
 Review the first service run before enabling the timer. The service publishes directly to `main` using a normal push. It requires the dedicated path above, a clean checkout, branch `main`, and the expected GitHub origin. It fetches and fast-forwards before rendering, and commits only the four generated pages. If a push fails, the next run can retry commits with the sync commit message that touch only those pages. Diverged history, unexpected commits, or a dirty checkout stop the job for review. Fix a dirty checkout by inspecting its diff; do not discard it blindly. A remote branch protection rule may require a different publication workflow.
 
 The timer runs at **02:00 Asia/Singapore**, catches up once after a missed night, and also checks one minute after the user manager starts. With lingering enabled, the startup check follows boot; otherwise it follows login. This extra check is harmless when the pages have no changes, and restores retries after another reboot. Without lingering, the user manager normally starts at login; a keyring-backed `gh` login may also need the desktop unlocked. First-login catch-up is the default. If the timer fires before the desktop keyring unlocks, local GitHub CLI credential errors retry every five minutes. Unlock the desktop keyring to let a later attempt complete. The timer does not wake a powered-off computer. Pre-login operation additionally needs lingering (`loginctl enable-linger kkk`), available home storage, and credentials that work without desktop unlock.
