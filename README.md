@@ -6,7 +6,7 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 
 **Total: 89 repositories.** This is the account's GitHub inventory, not just the repositories checked out under `~/Apps`.
 
-## 000 repositories
+## Core 000 repositories
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
