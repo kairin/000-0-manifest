@@ -40,34 +40,34 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 
 Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 
-## Other repositories
+## Actual work stuff
 
-| Repository | Visibility | Type | State | Default branch | Description |
-|---|---|---|---|---|---|
-| [airbase-apps](https://github.com/kairin/airbase-apps) | Private | Original | Active | `main` | — |
-| [audit-001](https://github.com/kairin/audit-001) | Private | Original | Active | `main` | — |
-| [BCM](https://github.com/kairin/BCM) | Private | Original | Active | `main` | — |
-| [bcm-redo](https://github.com/kairin/bcm-redo) | Private | Original | Active | `main` | — |
-| [BCM-redo-01-2026-09-28](https://github.com/kairin/BCM-redo-01-2026-09-28) | Private | Original | Active | `main` | — |
-| [better-automate](https://github.com/kairin/better-automate) | Private | Original | Active | `main` | Browser automation and tooling research |
-| [careers-gov](https://github.com/kairin/careers-gov) | Private | Original | Active | `main` | Private Singapore public-sector job applications + GovTech restructuring recon |
-| [CR-Reports](https://github.com/kairin/CR-Reports) | Private | Original | Active | `main` | Canonical private repository for Workday CR reports, original workbooks, and supporting evidence. |
-| [eml-convert](https://github.com/kairin/eml-convert) | Private | Original | Active | `main` | — |
-| [kyo-m](https://github.com/kairin/kyo-m) | Private | Original | Active | `main` | Email-parsing layer for the OG -> Airbase -> Plumber -> Tiles webhook pipeline (Kyocera meter readings first). GovTech Airbase, FastAPI. |
-| [Kyocera](https://github.com/kairin/Kyocera) | Private | Original | Active | `main` | — |
-| [nas](https://github.com/kairin/nas) | Private | Original | Active | `main` | Private NAS email archive (retention/KRIS threads) |
-| [og-digest](https://github.com/kairin/og-digest) | Private | Original | Active | `main` | Case digest formatter for OG -> Plumber -> Airbase (itecw-cgs-cas-k/og-digest) |
-| [OG-tools](https://github.com/kairin/OG-tools) | Private | Original | Active | `main` | Private tooling repo |
-| [Problem-Craft](https://github.com/kairin/Problem-Craft) | Private | Original | Active | `main` | — |
-| [problem-craft-base](https://github.com/kairin/problem-craft-base) | Private | Original | Active | `main` | — |
-| [pst-eml-convert-01](https://github.com/kairin/pst-eml-convert-01) | Private | Original | Active | `20260918-182300` | PST to EML conversion and preservation workflow |
-| [pst-eml-not-done](https://github.com/kairin/pst-eml-not-done) | Private | Original | Active | `main` | — |
-| [screenforge-d002](https://github.com/kairin/screenforge-d002) | Private | Original | Active | `main` | Experimental Linux bring-up for the D002 / Amlogic S905L-B, with potential display use. |
-| [screenforge-signage](https://github.com/kairin/screenforge-signage) | Private | Original | Active | `main` | Production digital-signage player and Raspberry Pi fleet. |
-| [stay-up](https://github.com/kairin/stay-up) | Public | Original | Active | `main` | Lightweight Windows keep-awake helper and consolidated PowerToys research |
-| [supplier-invoices-grab](https://github.com/kairin/supplier-invoices-grab) | Private | Original | Active | `main` | Identify GrabTaxi-related supplier invoices, track their status, and ensure on-time payment. |
-| [vba-scripts](https://github.com/kairin/vba-scripts) | Private | Original | Active | `main` | vba-scripts |
-| [WOG-Ref](https://github.com/kairin/WOG-Ref) | Private | Original | Active | `main` | — |
+| Repository | Visibility | Type | State | Default branch |
+|---|---|---|---|---|
+| [airbase-apps](https://github.com/kairin/airbase-apps) | Private | Original | Active | `main` |
+| [audit-001](https://github.com/kairin/audit-001) | Private | Original | Active | `main` |
+| [BCM](https://github.com/kairin/BCM) | Private | Original | Active | `main` |
+| [bcm-redo](https://github.com/kairin/bcm-redo) | Private | Original | Active | `main` |
+| [BCM-redo-01-2026-09-28](https://github.com/kairin/BCM-redo-01-2026-09-28) | Private | Original | Active | `main` |
+| [better-automate](https://github.com/kairin/better-automate) | Private | Original | Active | `main` |
+| [careers-gov](https://github.com/kairin/careers-gov) | Private | Original | Active | `main` |
+| [CR-Reports](https://github.com/kairin/CR-Reports) | Private | Original | Active | `main` |
+| [eml-convert](https://github.com/kairin/eml-convert) | Private | Original | Active | `main` |
+| [kyo-m](https://github.com/kairin/kyo-m) | Private | Original | Active | `main` |
+| [Kyocera](https://github.com/kairin/Kyocera) | Private | Original | Active | `main` |
+| [nas](https://github.com/kairin/nas) | Private | Original | Active | `main` |
+| [og-digest](https://github.com/kairin/og-digest) | Private | Original | Active | `main` |
+| [OG-tools](https://github.com/kairin/OG-tools) | Private | Original | Active | `main` |
+| [Problem-Craft](https://github.com/kairin/Problem-Craft) | Private | Original | Active | `main` |
+| [problem-craft-base](https://github.com/kairin/problem-craft-base) | Private | Original | Active | `main` |
+| [pst-eml-convert-01](https://github.com/kairin/pst-eml-convert-01) | Private | Original | Active | `20260918-182300` |
+| [pst-eml-not-done](https://github.com/kairin/pst-eml-not-done) | Private | Original | Active | `main` |
+| [screenforge-d002](https://github.com/kairin/screenforge-d002) | Private | Original | Active | `main` |
+| [screenforge-signage](https://github.com/kairin/screenforge-signage) | Private | Original | Active | `main` |
+| [stay-up](https://github.com/kairin/stay-up) | Public | Original | Active | `main` |
+| [supplier-invoices-grab](https://github.com/kairin/supplier-invoices-grab) | Private | Original | Active | `main` |
+| [vba-scripts](https://github.com/kairin/vba-scripts) | Private | Original | Active | `main` |
+| [WOG-Ref](https://github.com/kairin/WOG-Ref) | Private | Original | Active | `main` |
 
 ---
 
