@@ -1,0 +1,13 @@
+[Unit]
+Description=Update the GitHub repository manifest
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/.local/share/manifest-sync
+ExecStart=/usr/bin/python3 %h/.local/share/manifest-sync/scripts/sync_manifest.py --publish
+Environment=GIT_TERMINAL_PROMPT=0
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+TimeoutStartSec=5min
+Restart=no
+RestartForceExitStatus=75
+RestartSec=5min

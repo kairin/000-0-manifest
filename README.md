@@ -2,8 +2,8 @@
 
 Lists repositories in the kairin GitHub account, with separate records for forks and archived projects.
 
-GitHub account: [@kairin](https://github.com/kairin)  
-Inventory retrieved with GitHub CLI (`gh repo list`) on 2026-10-01.  
+GitHub account: [@kairin](https://github.com/kairin)<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-01.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
 **Total: 86 repositories in the GitHub account.** This README lists 46 repositories across its tables (46 of 86); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 13 personal-project entries. Forks and archived repositories are listed in their own documents.
@@ -88,3 +88,5 @@ Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 ---
 
 Forked repositories are listed separately in [FORKS.md](FORKS.md). Archived repositories are listed in [ARCHIVED.md](ARCHIVED.md).
+
+Local inventory refresh: [setup and usage](docs/local-sync.md).

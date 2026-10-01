@@ -1,0 +1,11 @@
+[Unit]
+Description=Refresh the GitHub repository manifest each night
+
+[Timer]
+OnCalendar=*-*-* 02:00:00 Asia/Singapore
+Persistent=true
+AccuracySec=1min
+Unit=manifest-sync.service
+
+[Install]
+WantedBy=timers.target

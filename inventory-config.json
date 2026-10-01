@@ -1,0 +1,349 @@
+{
+  "account": "kairin",
+  "repositories": {
+    "1391487456": {
+      "name": "000-0-ai",
+      "category": "auto"
+    },
+    "1337890865": {
+      "name": "000-0-ASD-STE100",
+      "category": "auto"
+    },
+    "1262359460": {
+      "name": "000-0-dotfiles",
+      "category": "auto"
+    },
+    "1399297146": {
+      "name": "000-0-manifest",
+      "category": "auto"
+    },
+    "1391487511": {
+      "name": "000-0-password",
+      "category": "auto"
+    },
+    "1313238576": {
+      "name": "000-0-tables",
+      "category": "auto"
+    },
+    "1367107638": {
+      "name": "000-0-tmux-cheat-sheet",
+      "category": "auto"
+    },
+    "1391487563": {
+      "name": "000-0-workspace",
+      "category": "auto"
+    },
+    "1390441128": {
+      "name": "000-111-learn",
+      "category": "auto"
+    },
+    "1268529214": {
+      "name": "agents",
+      "category": "auto"
+    },
+    "1328548006": {
+      "name": "airbase-apps",
+      "category": "work"
+    },
+    "1307439481": {
+      "name": "audit-001",
+      "category": "work"
+    },
+    "1225128651": {
+      "name": "BCM",
+      "category": "work"
+    },
+    "1374548436": {
+      "name": "bcm-redo",
+      "category": "work"
+    },
+    "1391711471": {
+      "name": "BCM-redo-01-2026-09-28",
+      "category": "work"
+    },
+    "1396594646": {
+      "name": "better-automate",
+      "category": "work"
+    },
+    "940351322": {
+      "name": "broadcast",
+      "category": "auto"
+    },
+    "1215317710": {
+      "name": "caption",
+      "category": "personal"
+    },
+    "1312802951": {
+      "name": "careers-gov",
+      "category": "work"
+    },
+    "1276212862": {
+      "name": "chatgpt-bulk-downloader",
+      "category": "personal"
+    },
+    "1374687345": {
+      "name": "choosing-a-database-2026",
+      "category": "auto"
+    },
+    "1269617859": {
+      "name": "civit-download",
+      "category": "personal"
+    },
+    "1270403190": {
+      "name": "civitai-link-desktop",
+      "category": "auto"
+    },
+    "1270944936": {
+      "name": "codex-playwright-cdp",
+      "category": "personal"
+    },
+    "910696685": {
+      "name": "comf-agx-orin",
+      "category": "auto"
+    },
+    "875074546": {
+      "name": "comfui",
+      "category": "auto"
+    },
+    "1270328245": {
+      "name": "comfy-cli",
+      "category": "auto"
+    },
+    "1268529610": {
+      "name": "comfyui-rtx5090",
+      "category": "personal"
+    },
+    "1332991577": {
+      "name": "CR-Reports",
+      "category": "work"
+    },
+    "969285641": {
+      "name": "dialog",
+      "category": "auto"
+    },
+    "887587657": {
+      "name": "discord-bluewillow-midjourney-msgs",
+      "category": "auto"
+    },
+    "1249706343": {
+      "name": "eml-convert",
+      "category": "work"
+    },
+    "1162339608": {
+      "name": "eml-email-extractor",
+      "category": "auto"
+    },
+    "909913709": {
+      "name": "feh",
+      "category": "auto"
+    },
+    "906821795": {
+      "name": "fluxgym",
+      "category": "auto"
+    },
+    "1261956613": {
+      "name": "FormSG",
+      "category": "auto"
+    },
+    "879987032": {
+      "name": "getfrozen",
+      "category": "auto"
+    },
+    "1026977195": {
+      "name": "ghostty-config-files",
+      "category": "personal"
+    },
+    "946227702": {
+      "name": "gitg",
+      "category": "auto"
+    },
+    "1006373345": {
+      "name": "google-gemini-codes",
+      "category": "auto"
+    },
+    "1221382836": {
+      "name": "graph-obsidian",
+      "category": "personal"
+    },
+    "964863915": {
+      "name": "HiDream-I1",
+      "category": "auto"
+    },
+    "1042429836": {
+      "name": "image-to-pdf",
+      "category": "auto"
+    },
+    "1214107106": {
+      "name": "image-tools",
+      "category": "personal"
+    },
+    "922684428": {
+      "name": "Install-OpenCV-Jetson-AGX-Orin",
+      "category": "auto"
+    },
+    "882286968": {
+      "name": "INT-FlashAttention",
+      "category": "auto"
+    },
+    "556289260": {
+      "name": "iPhonePrefsURLs",
+      "category": "auto"
+    },
+    "964915367": {
+      "name": "jetc",
+      "category": "auto"
+    },
+    "966176438": {
+      "name": "jetson-containers",
+      "category": "auto"
+    },
+    "1267258872": {
+      "name": "kyo-m",
+      "category": "work"
+    },
+    "1184133894": {
+      "name": "Kyocera",
+      "category": "work"
+    },
+    "981401323": {
+      "name": "learn_insightface",
+      "category": "auto"
+    },
+    "882321684": {
+      "name": "linformer",
+      "category": "auto"
+    },
+    "1059764015": {
+      "name": "MetaSpec-Kyocera",
+      "category": "auto"
+    },
+    "1275021801": {
+      "name": "my-comfyui-nodes",
+      "category": "personal"
+    },
+    "1308626644": {
+      "name": "nas",
+      "category": "work"
+    },
+    "1386719099": {
+      "name": "og-digest",
+      "category": "work"
+    },
+    "1244459112": {
+      "name": "OG-tools",
+      "category": "work"
+    },
+    "1389249376": {
+      "name": "openrig-breakdown",
+      "category": "personal"
+    },
+    "1261956186": {
+      "name": "plumber",
+      "category": "auto"
+    },
+    "949891950": {
+      "name": "PowerappsProjects",
+      "category": "auto"
+    },
+    "1375566024": {
+      "name": "predict-c",
+      "category": "personal"
+    },
+    "1003436250": {
+      "name": "printer-meter-tracker",
+      "category": "auto"
+    },
+    "1344062811": {
+      "name": "Problem-Craft",
+      "category": "work"
+    },
+    "1343336295": {
+      "name": "problem-craft-base",
+      "category": "work"
+    },
+    "1375708596": {
+      "name": "pst-eml-convert-01",
+      "category": "work"
+    },
+    "1346638695": {
+      "name": "pst-eml-not-done",
+      "category": "work"
+    },
+    "1092182527": {
+      "name": "recipe-explorer",
+      "category": "auto"
+    },
+    "966470370": {
+      "name": "renamefiles",
+      "category": "auto"
+    },
+    "983050956": {
+      "name": "roop",
+      "category": "auto"
+    },
+    "1276276412": {
+      "name": "rust-feh",
+      "category": "personal"
+    },
+    "900786241": {
+      "name": "SageAttention",
+      "category": "auto"
+    },
+    "1374137813": {
+      "name": "screenforge-d002",
+      "category": "work"
+    },
+    "1132621248": {
+      "name": "screenforge-signage",
+      "category": "work"
+    },
+    "1262103297": {
+      "name": "self-evolving-agentic-graph-memory-engine",
+      "category": "personal"
+    },
+    "900181613": {
+      "name": "stable-diffusion-webui-forge",
+      "category": "auto"
+    },
+    "1376538373": {
+      "name": "stay-up",
+      "category": "work"
+    },
+    "1075341230": {
+      "name": "supplier-invoices",
+      "category": "auto"
+    },
+    "1331404770": {
+      "name": "supplier-invoices-grab",
+      "category": "work"
+    },
+    "1027034178": {
+      "name": "tegon",
+      "category": "auto"
+    },
+    "1099746173": {
+      "name": "ubuntu-video-playback",
+      "category": "auto"
+    },
+    "1248768156": {
+      "name": "vba-scripts",
+      "category": "work"
+    },
+    "1039034828": {
+      "name": "Vizy-Unsupported-Remake",
+      "category": "auto"
+    },
+    "1098177758": {
+      "name": "win-qemu",
+      "category": "auto"
+    },
+    "1106801713": {
+      "name": "win-qemu-docs",
+      "category": "auto"
+    },
+    "1235489723": {
+      "name": "WOG-Ref",
+      "category": "work"
+    }
+  }
+}
