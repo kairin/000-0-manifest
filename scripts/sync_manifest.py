@@ -35,7 +35,21 @@ def run(args, cwd=ROOT):
         temporary = ('error connecting', 'could not resolve', 'connection timed out',
                      'connection reset', 'network is unreachable', 'http 502',
                      'http 503', 'http 504', 'rate limit', 'http 429')
-        cls = TemporaryError if any(s in error.lower() for s in temporary) else SyncError
+        diagnostic = error.lower()
+        retry = any(s in diagnostic for s in temporary)
+        if Path(args[0]).name == 'gh':
+            # A lingering user service can run before the desktop unlocks its keyring.
+            local_credentials = (
+                'to get started with github cli, please run: gh auth login',
+                'not logged into any github hosts', 'not logged in to any github hosts',
+                'keyring is locked', 'keyring is not available', 'keyring is unavailable',
+                'locked keyring', 'cannot get secret of a locked object',
+            )
+            normalized = ' '.join(diagnostic.split())
+            retry = retry or any(s in normalized for s in local_credentials)
+            if re.search(r'http\s+(401|403)\b', diagnostic) and 'rate limit' not in diagnostic:
+                retry = False
+        cls = TemporaryError if retry else SyncError
         raise cls(f'{args[0]} failed: {error}')
     return result.stdout
 

@@ -118,6 +118,28 @@ class InventoryTests(unittest.TestCase):
                     sync.run(['gh', 'api', 'user'])
                 self.assertIs(type(caught.exception), cls)
 
+    def test_only_local_gh_credentials_retry(self):
+        from subprocess import CompletedProcess
+        cases = [
+            ('gh', 'To get started with GitHub CLI, please run:  gh auth login', sync.TemporaryError),
+            ('gh', 'You are not logged into any GitHub hosts. Run gh auth login.', sync.TemporaryError),
+            ('gh', 'failed to get token: keyring is locked', sync.TemporaryError),
+            ('gh', 'failed to get token: keyring is not available', sync.TemporaryError),
+            ('gh', 'Cannot get secret of a locked object', sync.TemporaryError),
+            ('gh', 'HTTP 401: Bad credentials. To get started with GitHub CLI, please run: gh auth login', sync.SyncError),
+            ('gh', 'HTTP 403: Resource not accessible by personal access token', sync.SyncError),
+            ('gh', 'HTTP 403: API rate limit exceeded', sync.TemporaryError),
+            ('gh', 'Authentication failed: token invalid', sync.SyncError),
+            ('git', 'keyring is locked', sync.SyncError),
+            ('git', 'To get started with GitHub CLI, please run: gh auth login', sync.SyncError),
+        ]
+        for executable, message, expected in cases:
+            with self.subTest(message=message, executable=executable), \
+                 patch.object(sync.subprocess, 'run', return_value=CompletedProcess([], 1, '', message)):
+                with self.assertRaises(sync.SyncError) as caught:
+                    sync.run([executable, 'test'])
+                self.assertIs(type(caught.exception), expected)
+
     def test_pending_push_recovery_and_unrelated_commit_refusal(self):
         root = Path.home() / '.local/share/manifest-sync'
         def output(args, cwd):

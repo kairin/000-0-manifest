@@ -2,6 +2,7 @@
 Description=Refresh the GitHub repository manifest each night
 
 [Timer]
+OnStartupSec=1min
 OnCalendar=*-*-* 02:00:00 Asia/Singapore
 Persistent=true
 AccuracySec=1min
