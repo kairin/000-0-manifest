@@ -10,6 +10,7 @@ All repositories marked archived in the GitHub inventory, separated from the act
 | [comfui](https://github.com/kairin/comfui) | Public | Original | Archived | `main` | Google Colab notebook for running ComfyUI |
 | [dialog](https://github.com/kairin/dialog) | Public | Original | Archived | `main` | — |
 | [discord-bluewillow-midjourney-msgs](https://github.com/kairin/discord-bluewillow-midjourney-msgs) | Private | Original | Archived | `main` | discord-bluewillow-msg |
+| [eml-email-extractor](https://github.com/kairin/eml-email-extractor) | Private | Original | Archived | `main` | Extract and archive EML email threads, attachments, inline images, HTML, and PDFs. |
 | [feh](https://github.com/kairin/feh) | Public | Original | Archived | `main` | a fast and light image viewer |
 | [fluxgym](https://github.com/kairin/fluxgym) | Public | Fork | Archived | `main` | Dead simple FLUX LoRA training UI with LOW VRAM support |
 | [getfrozen](https://github.com/kairin/getfrozen) | Public | Original | Archived | `main` | download frozen.txt to google collab |

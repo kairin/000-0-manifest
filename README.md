@@ -22,7 +22,6 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
-| [000-assets](https://github.com/kairin/000-assets) | Private | Original | Active | `main` | — |
 | [agents](https://github.com/kairin/agents) | Private | Original | Active | `main` | — |
 | [airbase-apps](https://github.com/kairin/airbase-apps) | Private | Original | Active | `main` | — |
 | [audit-001](https://github.com/kairin/audit-001) | Private | Original | Active | `main` | — |
