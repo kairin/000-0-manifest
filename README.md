@@ -10,6 +10,7 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
+| [000-0-tmux-cheat-sheet](https://github.com/kairin/000-0-tmux-cheat-sheet) | Public | Original | Active | `main` | Short tmux cheat sheet for running Hermes, Claude Code, Grok, Codex, and Pi in persistent terminal sessions. |
 | [000-0-ai](https://github.com/kairin/000-0-ai) | Private | Original | Active | `main` | 000-0-ai (tier 0). Goal: AI tools work the same way on every computer and follow the SOP. Objective: Keep the configuration, agent files and documents of the AI tools in one place. |
 | [000-0-ASD-STE100](https://github.com/kairin/000-0-ASD-STE100) | Public | Original | Active | `main` | 000-0-ASD-STE100 (tier 0). Goal: Every document is clear to a reader who is not a developer. Objective: Give the STE writing rules and the check that every document must pass. |
 | [000-0-dotfiles](https://github.com/kairin/000-0-dotfiles) | Private | Original | Active | `main` | 000-0-dotfiles (tier 0). Goal: Every computer works the same way. Objective: Set up one computer (shell, terminal, Git, fonts and system tools) from this repository. |
@@ -57,7 +58,6 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 | [self-evolving-agentic-graph-memory-engine](https://github.com/kairin/self-evolving-agentic-graph-memory-engine) | Private | Original | Active | `main` | Self-evolving agentic graph memory engine |
 | [stay-up](https://github.com/kairin/stay-up) | Public | Original | Active | `main` | Lightweight Windows keep-awake helper and consolidated PowerToys research |
 | [supplier-invoices-grab](https://github.com/kairin/supplier-invoices-grab) | Private | Original | Active | `main` | Identify GrabTaxi-related supplier invoices, track their status, and ensure on-time payment. |
-| [tmux-cheat-sheet](https://github.com/kairin/tmux-cheat-sheet) | Public | Original | Active | `main` | Short tmux cheat sheet for running Hermes, Claude Code, Grok, Codex, and Pi in persistent terminal sessions. |
 | [vba-scripts](https://github.com/kairin/vba-scripts) | Private | Original | Active | `main` | vba-scripts |
 | [WOG-Ref](https://github.com/kairin/WOG-Ref) | Private | Original | Active | `main` | — |
 
