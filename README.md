@@ -22,21 +22,21 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 
 ## Personal projects — just for fun
 
-| Repository | Visibility |
-|---|---|
-| [caption](https://github.com/kairin/caption) | Private |
-| [chatgpt-bulk-downloader](https://github.com/kairin/chatgpt-bulk-downloader) | Public |
-| [civit-download](https://github.com/kairin/civit-download) | Private |
-| [codex-playwright-cdp](https://github.com/kairin/codex-playwright-cdp) | Private |
-| [comfyui-rtx5090](https://github.com/kairin/comfyui-rtx5090) | Private |
-| [ghostty-config-files](https://github.com/kairin/ghostty-config-files) | Public |
-| [graph-obsidian](https://github.com/kairin/graph-obsidian) | Private |
-| [image-tools](https://github.com/kairin/image-tools) | Private |
-| [my-comfyui-nodes](https://github.com/kairin/my-comfyui-nodes) | Public |
-| [openrig-breakdown](https://github.com/kairin/openrig-breakdown) | Public |
-| [predict-c](https://github.com/kairin/predict-c) | Private |
-| [rust-feh](https://github.com/kairin/rust-feh) | Public |
-| [self-evolving-agentic-graph-memory-engine](https://github.com/kairin/self-evolving-agentic-graph-memory-engine) | Private |
+| Repository | Visibility | Type | State | Default branch |
+|---|---|---|---|---|
+| [caption](https://github.com/kairin/caption) | Private | Original | Active | `main` |
+| [chatgpt-bulk-downloader](https://github.com/kairin/chatgpt-bulk-downloader) | Public | Original | Active | `main` |
+| [civit-download](https://github.com/kairin/civit-download) | Private | Original | Active | `main` |
+| [codex-playwright-cdp](https://github.com/kairin/codex-playwright-cdp) | Private | Original | Active | `20260616-153048` |
+| [comfyui-rtx5090](https://github.com/kairin/comfyui-rtx5090) | Private | Original | Active | `main` |
+| [ghostty-config-files](https://github.com/kairin/ghostty-config-files) | Public | Original | Active | `main` |
+| [graph-obsidian](https://github.com/kairin/graph-obsidian) | Private | Original | Active | `main` |
+| [image-tools](https://github.com/kairin/image-tools) | Private | Original | Active | `main` |
+| [my-comfyui-nodes](https://github.com/kairin/my-comfyui-nodes) | Public | Original | Active | `main` |
+| [openrig-breakdown](https://github.com/kairin/openrig-breakdown) | Public | Original | Active | `main` |
+| [predict-c](https://github.com/kairin/predict-c) | Private | Original | Active | `main` |
+| [rust-feh](https://github.com/kairin/rust-feh) | Public | Original | Active | `main` |
+| [self-evolving-agentic-graph-memory-engine](https://github.com/kairin/self-evolving-agentic-graph-memory-engine) | Private | Original | Active | `main` |
 
 Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 
