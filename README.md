@@ -8,7 +8,9 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 
 ## Core 000 repositories
 
-### Tier 000 - Core
+### 1 - Tier 000 - Core
+
+All other repositories with names beginning `000-` belong in this tier.
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
@@ -18,7 +20,7 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 | [000-0-tables](https://github.com/kairin/000-0-tables) | Private | Original | Active | `main` | 000-0-tables (tier 0). Goal: You never research the same database question twice, and what you know links across repositories. Objective: Define the database stack, and record how each project uses each database. |
 | [000-0-workspace](https://github.com/kairin/000-0-workspace) | Private | Original | Active | `main` | 000-0-workspace (tier 0). Goal: All repositories in ~/Apps stay healthy and consistent. Objective: Keep the tools that work across all repositories, and the SOP map. |
 
-### Tier 000 - Public
+### 2 - Tier 000 - Public
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
@@ -26,7 +28,7 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 | [000-0-manifest](https://github.com/kairin/000-0-manifest) | Public | Original | Active | `main` | GitHub repository inventory for the kairin account, with forks and archived repositories listed separately. |
 | [000-0-tmux-cheat-sheet](https://github.com/kairin/000-0-tmux-cheat-sheet) | Public | Original | Active | `main` | Short tmux cheat sheet for running Hermes, Claude Code, Grok, Codex, and Pi in persistent terminal sessions. |
 
-### Tier 111 - Learning
+### 3 - Tier 111 - Learning
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
