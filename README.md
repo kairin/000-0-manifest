@@ -6,6 +6,8 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 
 **Total: 89 repositories.** This is the account's GitHub inventory, not just the repositories checked out under `~/Apps`.
 
+## 000 repositories
+
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
 | [000-0-ai](https://github.com/kairin/000-0-ai) | Private | Original | Active | `main` | 000-0-ai (tier 0). Goal: AI tools work the same way on every computer and follow the SOP. Objective: Keep the configuration, agent files and documents of the AI tools in one place. |
@@ -15,6 +17,11 @@ Repositories are sorted alphabetically by repository name (case-insensitive).
 | [000-0-tables](https://github.com/kairin/000-0-tables) | Private | Original | Active | `main` | 000-0-tables (tier 0). Goal: You never research the same database question twice, and what you know links across repositories. Objective: Define the database stack, and record how each project uses each database. |
 | [000-0-workspace](https://github.com/kairin/000-0-workspace) | Private | Original | Active | `main` | 000-0-workspace (tier 0). Goal: All repositories in ~/Apps stay healthy and consistent. Objective: Keep the tools that work across all repositories, and the SOP map. |
 | [000-111-learn](https://github.com/kairin/000-111-learn) | Public | Original | Active | `main` | 000-111-learn (tier 111). Goal: Write very small, fast programs that run close to the hardware. Objective: Learn Assembly and Fortran as real languages, through small game tutorials. |
+
+## Other repositories
+
+| Repository | Visibility | Type | State | Default branch | Description |
+|---|---|---|---|---|---|
 | [000-assets](https://github.com/kairin/000-assets) | Private | Original | Active | `main` | — |
 | [agents](https://github.com/kairin/agents) | Private | Original | Active | `main` | — |
 | [airbase-apps](https://github.com/kairin/airbase-apps) | Private | Original | Active | `main` | — |
