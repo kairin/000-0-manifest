@@ -4,6 +4,7 @@ All repositories marked archived in the GitHub inventory, separated from the act
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
+| [agents](https://github.com/kairin/agents) | Private | Original | Archived | `main` | Collection of 44 specialized Claude Code subagent prompts for development, operations, security, data/AI, and business tasks. |
 | [broadcast](https://github.com/kairin/broadcast) | Public | Original | Archived | `main` | broadcast |
 | [choosing-a-database-2026](https://github.com/kairin/choosing-a-database-2026) | Public | Original | Archived | `main` | Research and adversarial reviews on choosing a database in 2026 |
 | [comf-agx-orin](https://github.com/kairin/comf-agx-orin) | Public | Original | Archived | `master` | — |
