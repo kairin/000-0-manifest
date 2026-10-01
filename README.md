@@ -2,7 +2,7 @@
 
 GitHub account: [@kairin](https://github.com/kairin)  
 Inventory retrieved with GitHub CLI (`gh repo list`) on 2026-10-01.  
-Repositories are sorted alphabetically by repository name (case-insensitive). Forks are listed separately in [FORKS.md](FORKS.md).
+Repositories are sorted alphabetically by repository name (case-insensitive).
 
 **Total: 89 repositories.** This is the account's GitHub inventory, not just the repositories checked out under `~/Apps`.
 
@@ -80,3 +80,7 @@ Repositories are sorted alphabetically by repository name (case-insensitive). Fo
 | [win-qemu](https://github.com/kairin/win-qemu) | Public | Original | Archived | `main` | QEMU/KVM Windows Virtualization - Run native Microsoft 365 Outlook on Ubuntu with 85-95% native performance using hardware-assisted virtualization |
 | [win-qemu-docs](https://github.com/kairin/win-qemu-docs) | Public | Original | Archived | `main` | QEMU/KVM Windows 11 Virtualization Documentation - Astro + TailwindCSS + DaisyUI |
 | [WOG-Ref](https://github.com/kairin/WOG-Ref) | Private | Original | Active | `main` | — |
+
+---
+
+Forked repositories are listed separately in [FORKS.md](FORKS.md).
