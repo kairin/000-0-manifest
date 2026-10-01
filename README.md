@@ -1,5 +1,7 @@
 # GitHub Repository Manifest
 
+Lists repositories in the kairin GitHub account, with separate records for forks and archived projects.
+
 GitHub account: [@kairin](https://github.com/kairin)  
 Inventory retrieved with GitHub CLI (`gh repo list`) on 2026-10-01.  
 Repositories are sorted alphabetically by repository name (case-insensitive).
@@ -14,25 +16,25 @@ All other repositories with names beginning `000-` belong in this tier.
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
-| [000-0-ai](https://github.com/kairin/000-0-ai) | Private | Original | Active | `main` | 000-0-ai (tier 0). Goal: AI tools work the same way on every computer and follow the SOP. Objective: Keep the configuration, agent files and documents of the AI tools in one place. |
-| [000-0-dotfiles](https://github.com/kairin/000-0-dotfiles) | Private | Original | Active | `main` | 000-0-dotfiles (tier 0). Goal: Every computer works the same way. Objective: Set up one computer (shell, terminal, Git, fonts and system tools) from this repository. |
-| [000-0-password](https://github.com/kairin/000-0-password) | Private | Original | Active | `main` | 000-0-password (tier 0). Goal: No key gets to a program that does not need it. Objective: Give one key to one command, only when that command asks for it. |
-| [000-0-tables](https://github.com/kairin/000-0-tables) | Private | Original | Active | `main` | 000-0-tables (tier 0). Goal: You never research the same database question twice, and what you know links across repositories. Objective: Define the database stack, and record how each project uses each database. |
-| [000-0-workspace](https://github.com/kairin/000-0-workspace) | Private | Original | Active | `main` | 000-0-workspace (tier 0). Goal: All repositories in ~/Apps stay healthy and consistent. Objective: Keep the tools that work across all repositories, and the SOP map. |
+| [000-0-ai](https://github.com/kairin/000-0-ai) | Private | Original | Active | `main` | Stores shared AI tool settings, agent instructions and documentation so tools work consistently across computers. |
+| [000-0-dotfiles](https://github.com/kairin/000-0-dotfiles) | Private | Original | Active | `main` | Sets up consistent shell, terminal, Git, fonts and system tools across computers. |
+| [000-0-password](https://github.com/kairin/000-0-password) | Private | Original | Active | `main` | Gives each command only the secret it needs from an encrypted password store. |
+| [000-0-tables](https://github.com/kairin/000-0-tables) | Private | Original | Active | `main` | Defines the database stack and records database research, project usage and lessons for reuse across projects. |
+| [000-0-workspace](https://github.com/kairin/000-0-workspace) | Private | Original | Active | `main` | Keeps repositories in ~/Apps consistent with shared Git checks, project templates and a map of workspace rules. |
 
 ### 2 - Tier 000 - Public
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
-| [000-0-ASD-STE100](https://github.com/kairin/000-0-ASD-STE100) | Public | Original | Active | `main` | 000-0-ASD-STE100 (tier 0). Goal: Every document is clear to a reader who is not a developer. Objective: Give the STE writing rules and the check that every document must pass. |
-| [000-0-manifest](https://github.com/kairin/000-0-manifest) | Public | Original | Active | `main` | GitHub repository inventory for the kairin account, with forks and archived repositories listed separately. |
-| [000-0-tmux-cheat-sheet](https://github.com/kairin/000-0-tmux-cheat-sheet) | Public | Original | Active | `main` | Short tmux cheat sheet for running Hermes, Claude Code, Grok, Codex, and Pi in persistent terminal sessions. |
+| [000-0-ASD-STE100](https://github.com/kairin/000-0-ASD-STE100) | Public | Original | Active | `main` | Provides Simplified Technical English writing rules and a prose checker to help readers understand technical documents. |
+| [000-0-manifest](https://github.com/kairin/000-0-manifest) | Public | Original | Active | `main` | Lists repositories in the kairin GitHub account, with separate records for forks and archived projects. |
+| [000-0-tmux-cheat-sheet](https://github.com/kairin/000-0-tmux-cheat-sheet) | Public | Original | Active | `main` | Teaches basic tmux commands to keep AI agents running in separate terminal sessions, even after the terminal closes. |
 
 ### 3 - Tier 111 - Learning
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
-| [000-111-learn](https://github.com/kairin/000-111-learn) | Public | Original | Active | `main` | 000-111-learn (tier 111). Goal: Write very small, fast programs that run close to the hardware. Objective: Learn Assembly and Fortran as real languages, through small game tutorials. |
+| [000-111-learn](https://github.com/kairin/000-111-learn) | Public | Original | Active | `main` | Teaches Assembly and Fortran through small game tutorials to build fast programs that run close to the hardware. |
 
 ## Personal projects — just for fun
 
