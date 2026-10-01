@@ -1,6 +1,6 @@
 # Archived repositories
 
-All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks.
+All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks. This table lists 36 archived repositories out of 86 repositories in the GitHub account.
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|

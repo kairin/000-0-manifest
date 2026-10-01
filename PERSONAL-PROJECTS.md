@@ -1,6 +1,6 @@
 # Personal projects — just for fun
 
-These are personal projects kept for enjoyment and experimentation.
+These are personal projects kept for enjoyment and experimentation. This table lists 13 projects out of 86 repositories in the GitHub account; the same projects are also summarized in the personal-projects table in [README.md](README.md).
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|

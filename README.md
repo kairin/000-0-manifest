@@ -4,7 +4,7 @@ GitHub account: [@kairin](https://github.com/kairin)
 Inventory retrieved with GitHub CLI (`gh repo list`) on 2026-10-01.  
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 89 repositories.** This is the account's GitHub inventory, not just the repositories checked out under `~/Apps`.
+**Total: 86 repositories in the GitHub account.** This README lists 46 repositories across its tables (46 of 86); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 13 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## Core 000 repositories
 
