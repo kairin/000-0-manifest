@@ -3,10 +3,10 @@
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-01.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-02.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 86 repositories in the GitHub account.** This README lists 46 repositories across its tables (46 of 86); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 13 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 87 repositories in the GitHub account.** This README lists 47 repositories across its tables (47 of 87); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 13 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## Core 000 repositories
 
@@ -67,6 +67,7 @@ Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 | [BCM-redo-01-2026-09-28](https://github.com/kairin/BCM-redo-01-2026-09-28) | Private | Original | Active | `main` |
 | [better-automate](https://github.com/kairin/better-automate) | Private | Original | Active | `main` |
 | [careers-gov](https://github.com/kairin/careers-gov) | Private | Original | Active | `main` |
+| [cas-leave](https://github.com/kairin/cas-leave) | Private | Original | Active | `main` |
 | [CR-Reports](https://github.com/kairin/CR-Reports) | Private | Original | Active | `main` |
 | [eml-convert](https://github.com/kairin/eml-convert) | Private | Original | Active | `main` |
 | [kyo-m](https://github.com/kairin/kyo-m) | Private | Original | Active | `main` |
