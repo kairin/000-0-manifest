@@ -90,3 +90,17 @@ Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 ---
 
 Forked repositories are listed separately in [FORKS.md](FORKS.md). Archived repositories are listed in [ARCHIVED.md](ARCHIVED.md).
+
+## How this repository works
+
+The tables and repository counts on this page, [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md), [FORKS.md](FORKS.md), and [ARCHIVED.md](ARCHIVED.md) are generated. Do not edit the tables by hand, because the next sync replaces them. Headings and other text stay as written.
+
+| Path | Contents |
+|---|---|
+| `scripts/sync_manifest.py` | Script that reads the repository list from GitHub and regenerates the four pages |
+| `inventory-config.json` | Approved repository IDs and their categories (`personal`, `work`, or `auto`) |
+| `systemd/` | Timer and service that run the script each night on one computer |
+| `tests/` | Unit tests for the script |
+| `docs/local-sync.md` | What the script does, installation, logs, headless setup, and troubleshooting |
+
+There is no GitHub Actions workflow. The sync runs on a computer where the systemd timer is installed. A new private repository does not appear until it has an entry in `inventory-config.json`. For the steps, see [docs/local-sync.md](docs/local-sync.md).
