@@ -46,7 +46,7 @@ The script does not change any other file. Change `inventory-config.json` and th
 
 ## Classification and new repositories
 
-The classification order is archived, active fork, `000-111-` learning, other `000-` core/public, then configured personal/work. Unknown public archived/fork/core repositories can be included automatically. A new private or internal repository always needs an explicit config entry before publication. Every previously approved ID must be present; deletion, transfer, and lost access require review. To add an entry, use its numeric REST API `id`, name, and category (`personal`, `work`, or `auto` for core/fork/archive). Remove an entry only after confirming why it disappeared. An unarchived noncore original needs personal/work classification.
+The classification order is archived (tier 999), active fork (tier 444), then the name prefix of an active original: `000-111-` learning, `000-222-` personal, `000-333-` work, other `000-` core/public. Remaining originals, including `000-444-` and `000-999-` names that are no longer forks or archived, use their configured personal/work category. Unknown public archived/fork/core repositories can be included automatically. A new private or internal repository always needs an explicit config entry before publication. Every previously approved ID must be present; deletion, transfer, and lost access require review. To add an entry, use its numeric REST API `id`, name, and category (`personal`, `work`, or `auto` for core/fork/archive). Remove an entry only after confirming why it disappeared. An unarchived noncore original needs personal/work classification.
 
 To get the ID of a repository:
 

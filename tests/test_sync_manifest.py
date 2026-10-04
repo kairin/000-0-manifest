@@ -54,6 +54,21 @@ class InventoryTests(unittest.TestCase):
         for key in ('learning', 'public', 'core', 'forks'):
             self.assertEqual(len(groups[key]), 1)
 
+    def test_tier_prefix_routing(self):
+        rows = [repo(1, '000-222-fun', private=True, visibility='private'),
+                repo(2, '000-333-job', private=True, visibility='private'),
+                repo(3, '000-444-copy', fork=True), repo(4, '000-999-old', archived=True)]
+        cfg = config(*rows)
+        cfg['repositories']['1']['category'] = cfg['repositories']['2']['category'] = 'auto'
+        groups = sync.classify([rows], cfg)
+        for key, name in (('personal', '000-222-fun'), ('work', '000-333-job'),
+                          ('forks', '000-444-copy'), ('archived', '000-999-old')):
+            self.assertEqual([r['name'] for r in groups[key]], [name])
+        self.assertEqual(groups['core'], [])
+        # An unarchived 000-999- original is not core; it needs personal/work classification.
+        with self.assertRaisesRegex(sync.SyncError, 'classification'):
+            sync.classify([[repo(5, '000-999-back')]], config())
+
     def test_order_and_missing_text_and_injection(self):
         rows = [repo(1, 'z'), repo(2, 'Alpha', description='<script>x</script> | [bad](url)\nnext')]
         groups = sync.classify([rows], config(*rows))

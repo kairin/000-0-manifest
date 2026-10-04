@@ -15,6 +15,9 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 FILES = ('README.md', 'PERSONAL-PROJECTS.md', 'ARCHIVED.md', 'FORKS.md')
 MESSAGE = 'docs: sync GitHub repository inventory'
+# Name prefixes that fix an active original's section. Forks (000-444-) and
+# archived repositories (000-999-) are placed by GitHub state, not by name.
+TIERS = {'000-111-': 'learning', '000-222-': 'personal', '000-333-': 'work'}
 
 
 class SyncError(Exception):
@@ -98,9 +101,9 @@ def classify(pages, config):
                 group = 'archived'
             elif repo['fork']:
                 group = 'forks'
-            elif name.startswith('000-111-'):
-                group = 'learning'
-            elif name.startswith('000-'):
+            elif name.startswith(tuple(TIERS)):
+                group = TIERS[name[:8]]
+            elif name.startswith('000-') and not name.startswith(('000-444-', '000-999-')):
                 group = 'public' if repo['visibility'] == 'public' else 'core'
             else:
                 group = approved.get(rid, {}).get('category')
