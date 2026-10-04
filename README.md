@@ -6,11 +6,9 @@ GitHub account: [@kairin](https://github.com/kairin)<br>
 Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-04.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 88 repositories in the GitHub account.** This README lists 48 repositories across its tables (48 of 88); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 13 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 89 repositories in the GitHub account.** This README lists 49 repositories across its tables (49 of 89); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
 
-## Core 000 repositories
-
-### 1 - Tier 000 - Core
+## 1 - Tier 000 - Core
 
 All other repositories with names beginning `000-` belong in this tier.
 
@@ -22,7 +20,7 @@ All other repositories with names beginning `000-` belong in this tier.
 | [000-0-tables](https://github.com/kairin/000-0-tables) | Private | Original | Active | `main` | Defines the database stack and records database research, project usage and lessons for reuse across projects. |
 | [000-0-workspace](https://github.com/kairin/000-0-workspace) | Private | Original | Active | `main` | Keeps repositories in ~/Apps consistent with shared Git checks, project templates and a map of workspace rules. |
 
-### 2 - Tier 000 - Public
+## 2 - Tier 000 - Public
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
@@ -30,13 +28,15 @@ All other repositories with names beginning `000-` belong in this tier.
 | [000-0-manifest](https://github.com/kairin/000-0-manifest) | Public | Original | Active | `main` | Lists repositories in the kairin GitHub account, with separate records for forks and archived projects. |
 | [000-0-tmux-cheat-sheet](https://github.com/kairin/000-0-tmux-cheat-sheet) | Public | Original | Active | `main` | Teaches basic tmux commands to keep AI agents running in separate terminal sessions, even after the terminal closes. |
 
-### 3 - Tier 111 - Learning
+## 3 - Tier 111 - Learning
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
 | [000-111-learn](https://github.com/kairin/000-111-learn) | Public | Original | Active | `main` | Teaches Assembly and Fortran through small game tutorials to build fast programs that run close to the hardware. |
 
-## Personal projects — just for fun
+## 4 - Tier 222 - Personal
+
+Personal projects — just for fun.
 
 | Repository | Visibility | Type | State | Default branch |
 |---|---|---|---|---|
@@ -45,6 +45,7 @@ All other repositories with names beginning `000-` belong in this tier.
 | [civit-download](https://github.com/kairin/civit-download) | Private | Original | Active | `main` |
 | [codex-playwright-cdp](https://github.com/kairin/codex-playwright-cdp) | Private | Original | Active | `20260616-153048` |
 | [comfyui-rtx5090](https://github.com/kairin/comfyui-rtx5090) | Private | Original | Active | `main` |
+| [enom-projects](https://github.com/kairin/enom-projects) | Private | Original | Active | `main` |
 | [ghostty-config-files](https://github.com/kairin/ghostty-config-files) | Public | Original | Active | `main` |
 | [graph-obsidian](https://github.com/kairin/graph-obsidian) | Private | Original | Active | `main` |
 | [image-tools](https://github.com/kairin/image-tools) | Private | Original | Active | `main` |
@@ -56,7 +57,9 @@ All other repositories with names beginning `000-` belong in this tier.
 
 Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 
-## Actual work stuff
+## 5 - Tier 333 - Work
+
+Actual work stuff.
 
 | Repository | Visibility | Type | State | Default branch |
 |---|---|---|---|---|
@@ -87,9 +90,13 @@ Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 | [vba-scripts](https://github.com/kairin/vba-scripts) | Private | Original | Active | `main` |
 | [WOG-Ref](https://github.com/kairin/WOG-Ref) | Private | Original | Active | `main` |
 
----
+## 6 - Tier 444 - Forks
 
-Forked repositories are listed separately in [FORKS.md](FORKS.md). Archived repositories are listed in [ARCHIVED.md](ARCHIVED.md).
+Forked repositories are listed separately in [FORKS.md](FORKS.md).
+
+## 7 - Tier 999 - Archived
+
+Archived repositories are listed in [ARCHIVED.md](ARCHIVED.md).
 
 ## How this repository works
 
