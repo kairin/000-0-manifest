@@ -3,14 +3,14 @@
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-04.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-05.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
 **Total: 89 repositories in the GitHub account.** This README lists 49 repositories across its tables (49 of 89); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core
 
-All other repositories with names beginning `000-` belong in this tier.
+All other private repositories with names beginning `000-` and no tier number (`111`, `222`, `333`, `444` or `999`) belong in this tier.
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
@@ -40,20 +40,20 @@ Personal projects — just for fun.
 
 | Repository | Visibility | Type | State | Default branch |
 |---|---|---|---|---|
-| [caption](https://github.com/kairin/caption) | Private | Original | Active | `main` |
-| [chatgpt-bulk-downloader](https://github.com/kairin/chatgpt-bulk-downloader) | Public | Original | Active | `main` |
-| [civit-download](https://github.com/kairin/civit-download) | Private | Original | Active | `main` |
-| [codex-playwright-cdp](https://github.com/kairin/codex-playwright-cdp) | Private | Original | Active | `20260616-153048` |
-| [comfyui-rtx5090](https://github.com/kairin/comfyui-rtx5090) | Private | Original | Active | `main` |
-| [enom-projects](https://github.com/kairin/enom-projects) | Private | Original | Active | `main` |
-| [ghostty-config-files](https://github.com/kairin/ghostty-config-files) | Public | Original | Active | `main` |
-| [graph-obsidian](https://github.com/kairin/graph-obsidian) | Private | Original | Active | `main` |
-| [image-tools](https://github.com/kairin/image-tools) | Private | Original | Active | `main` |
-| [my-comfyui-nodes](https://github.com/kairin/my-comfyui-nodes) | Public | Original | Active | `main` |
-| [openrig-breakdown](https://github.com/kairin/openrig-breakdown) | Public | Original | Active | `main` |
-| [predict-c](https://github.com/kairin/predict-c) | Private | Original | Active | `main` |
-| [rust-feh](https://github.com/kairin/rust-feh) | Public | Original | Active | `main` |
-| [self-evolving-agentic-graph-memory-engine](https://github.com/kairin/self-evolving-agentic-graph-memory-engine) | Private | Original | Active | `main` |
+| [000-222-caption](https://github.com/kairin/000-222-caption) | Private | Original | Active | `main` |
+| [000-222-chatgpt-bulk-downloader](https://github.com/kairin/000-222-chatgpt-bulk-downloader) | Public | Original | Active | `main` |
+| [000-222-civit-download](https://github.com/kairin/000-222-civit-download) | Private | Original | Active | `main` |
+| [000-222-codex-playwright-cdp](https://github.com/kairin/000-222-codex-playwright-cdp) | Private | Original | Active | `main` |
+| [000-222-comfyui-rtx5090](https://github.com/kairin/000-222-comfyui-rtx5090) | Private | Original | Active | `main` |
+| [000-222-enom-projects](https://github.com/kairin/000-222-enom-projects) | Private | Original | Active | `main` |
+| [000-222-ghostty-config-files](https://github.com/kairin/000-222-ghostty-config-files) | Public | Original | Active | `main` |
+| [000-222-graph-obsidian](https://github.com/kairin/000-222-graph-obsidian) | Private | Original | Active | `main` |
+| [000-222-image-tools](https://github.com/kairin/000-222-image-tools) | Private | Original | Active | `main` |
+| [000-222-my-comfyui-nodes](https://github.com/kairin/000-222-my-comfyui-nodes) | Public | Original | Active | `main` |
+| [000-222-openrig-breakdown](https://github.com/kairin/000-222-openrig-breakdown) | Public | Original | Active | `main` |
+| [000-222-predict-c](https://github.com/kairin/000-222-predict-c) | Private | Original | Active | `main` |
+| [000-222-rust-feh](https://github.com/kairin/000-222-rust-feh) | Public | Original | Active | `main` |
+| [000-222-self-evolving-agentic-graph-memory-engine](https://github.com/kairin/000-222-self-evolving-agentic-graph-memory-engine) | Private | Original | Active | `main` |
 
 Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 
@@ -63,32 +63,32 @@ Actual work stuff.
 
 | Repository | Visibility | Type | State | Default branch |
 |---|---|---|---|---|
-| [airbase-apps](https://github.com/kairin/airbase-apps) | Private | Original | Active | `main` |
-| [audit-001](https://github.com/kairin/audit-001) | Private | Original | Active | `main` |
-| [BCM](https://github.com/kairin/BCM) | Private | Original | Active | `main` |
-| [bcm-redo](https://github.com/kairin/bcm-redo) | Private | Original | Active | `main` |
-| [BCM-redo-01-2026-09-28](https://github.com/kairin/BCM-redo-01-2026-09-28) | Private | Original | Active | `main` |
-| [better-automate](https://github.com/kairin/better-automate) | Private | Original | Active | `main` |
-| [careers-gov](https://github.com/kairin/careers-gov) | Private | Original | Active | `main` |
-| [cas-leave](https://github.com/kairin/cas-leave) | Private | Original | Active | `main` |
-| [CR-Reports](https://github.com/kairin/CR-Reports) | Private | Original | Active | `main` |
-| [eml-convert](https://github.com/kairin/eml-convert) | Private | Original | Active | `main` |
-| [ip-tel](https://github.com/kairin/ip-tel) | Private | Original | Active | `main` |
-| [kyo-m](https://github.com/kairin/kyo-m) | Private | Original | Active | `main` |
-| [Kyocera](https://github.com/kairin/Kyocera) | Private | Original | Active | `main` |
-| [nas](https://github.com/kairin/nas) | Private | Original | Active | `main` |
-| [og-digest](https://github.com/kairin/og-digest) | Private | Original | Active | `main` |
-| [OG-tools](https://github.com/kairin/OG-tools) | Private | Original | Active | `main` |
-| [Problem-Craft](https://github.com/kairin/Problem-Craft) | Private | Original | Active | `main` |
-| [problem-craft-base](https://github.com/kairin/problem-craft-base) | Private | Original | Active | `main` |
-| [pst-eml-convert-01](https://github.com/kairin/pst-eml-convert-01) | Private | Original | Active | `20260918-182300` |
-| [pst-eml-not-done](https://github.com/kairin/pst-eml-not-done) | Private | Original | Active | `main` |
-| [screenforge-d002](https://github.com/kairin/screenforge-d002) | Private | Original | Active | `main` |
-| [screenforge-signage](https://github.com/kairin/screenforge-signage) | Private | Original | Active | `main` |
-| [stay-up](https://github.com/kairin/stay-up) | Public | Original | Active | `main` |
-| [supplier-invoices-grab](https://github.com/kairin/supplier-invoices-grab) | Private | Original | Active | `main` |
-| [vba-scripts](https://github.com/kairin/vba-scripts) | Private | Original | Active | `main` |
-| [WOG-Ref](https://github.com/kairin/WOG-Ref) | Private | Original | Active | `main` |
+| [000-333-airbase-apps](https://github.com/kairin/000-333-airbase-apps) | Private | Original | Active | `main` |
+| [000-333-audit-001](https://github.com/kairin/000-333-audit-001) | Private | Original | Active | `main` |
+| [000-333-BCM](https://github.com/kairin/000-333-BCM) | Private | Original | Active | `main` |
+| [000-333-bcm-redo](https://github.com/kairin/000-333-bcm-redo) | Private | Original | Active | `main` |
+| [000-333-BCM-redo-01-2026-09-28](https://github.com/kairin/000-333-BCM-redo-01-2026-09-28) | Private | Original | Active | `main` |
+| [000-333-better-automate](https://github.com/kairin/000-333-better-automate) | Private | Original | Active | `main` |
+| [000-333-careers-gov](https://github.com/kairin/000-333-careers-gov) | Private | Original | Active | `main` |
+| [000-333-cas-leave](https://github.com/kairin/000-333-cas-leave) | Private | Original | Active | `main` |
+| [000-333-CR-Reports](https://github.com/kairin/000-333-CR-Reports) | Private | Original | Active | `main` |
+| [000-333-eml-convert](https://github.com/kairin/000-333-eml-convert) | Private | Original | Active | `main` |
+| [000-333-ip-tel](https://github.com/kairin/000-333-ip-tel) | Private | Original | Active | `main` |
+| [000-333-kyo-m](https://github.com/kairin/000-333-kyo-m) | Private | Original | Active | `main` |
+| [000-333-Kyocera](https://github.com/kairin/000-333-Kyocera) | Private | Original | Active | `main` |
+| [000-333-nas](https://github.com/kairin/000-333-nas) | Private | Original | Active | `main` |
+| [000-333-og-digest](https://github.com/kairin/000-333-og-digest) | Private | Original | Active | `main` |
+| [000-333-OG-tools](https://github.com/kairin/000-333-OG-tools) | Private | Original | Active | `main` |
+| [000-333-Problem-Craft](https://github.com/kairin/000-333-Problem-Craft) | Private | Original | Active | `main` |
+| [000-333-problem-craft-base](https://github.com/kairin/000-333-problem-craft-base) | Private | Original | Active | `main` |
+| [000-333-pst-eml-convert-01](https://github.com/kairin/000-333-pst-eml-convert-01) | Private | Original | Active | `main` |
+| [000-333-pst-eml-not-done](https://github.com/kairin/000-333-pst-eml-not-done) | Private | Original | Active | `main` |
+| [000-333-screenforge-d002](https://github.com/kairin/000-333-screenforge-d002) | Private | Original | Active | `main` |
+| [000-333-screenforge-signage](https://github.com/kairin/000-333-screenforge-signage) | Private | Original | Active | `main` |
+| [000-333-stay-up](https://github.com/kairin/000-333-stay-up) | Public | Original | Active | `main` |
+| [000-333-supplier-invoices-grab](https://github.com/kairin/000-333-supplier-invoices-grab) | Private | Original | Active | `main` |
+| [000-333-vba-scripts](https://github.com/kairin/000-333-vba-scripts) | Private | Original | Active | `main` |
+| [000-333-WOG-Ref](https://github.com/kairin/000-333-WOG-Ref) | Private | Original | Active | `main` |
 
 ## 6 - Tier 444 - Forks
 
