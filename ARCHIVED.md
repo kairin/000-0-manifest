@@ -1,6 +1,6 @@
 # 7 - Tier 999 - Archived
 
-All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks. This table lists 36 archived repositories out of 89 repositories in the GitHub account.
+All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks. This table lists 36 archived repositories out of 90 repositories in the GitHub account.
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|

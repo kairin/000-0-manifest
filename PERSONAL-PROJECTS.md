@@ -1,6 +1,6 @@
 # 4 - Tier 222 - Personal
 
-Personal projects — just for fun. These are personal projects kept for enjoyment and experimentation. This table lists 14 projects out of 89 repositories in the GitHub account; the same projects are also summarized in section 4 of [README.md](README.md).
+Personal projects — just for fun. These are personal projects kept for enjoyment and experimentation. This table lists 14 projects out of 90 repositories in the GitHub account; the same projects are also summarized in section 4 of [README.md](README.md).
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
