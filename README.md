@@ -6,7 +6,7 @@ GitHub account: [@kairin](https://github.com/kairin)<br>
 Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-05.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 89 repositories in the GitHub account.** This README lists 49 repositories across its tables (49 of 89); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 90 repositories in the GitHub account.** This README lists 50 repositories across its tables (50 of 90); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core
 
@@ -33,6 +33,7 @@ All other private repositories with names beginning `000-` and no tier number (`
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
 | [000-111-learn](https://github.com/kairin/000-111-learn) | Public | Original | Active | `main` | Teaches Assembly and Fortran through small game tutorials to build fast programs that run close to the hardware. |
+| [000-111-rust-browser](https://github.com/kairin/000-111-rust-browser) | Public | Original | Active | `main` | Explores Rust browser shells and semantic browser automation so LLMs can inspect pages, operate controls and verify results. |
 
 ## 4 - Tier 222 - Personal
 
