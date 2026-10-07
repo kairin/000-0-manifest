@@ -3,10 +3,10 @@
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-05.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-08.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 90 repositories in the GitHub account.** This README lists 50 repositories across its tables (50 of 90); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 93 repositories in the GitHub account.** This README lists 53 repositories across its tables (53 of 93); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core
 
@@ -73,6 +73,7 @@ Actual work stuff.
 | [000-333-careers-gov](https://github.com/kairin/000-333-careers-gov) | Private | Original | Active | `main` |
 | [000-333-cas-leave](https://github.com/kairin/000-333-cas-leave) | Private | Original | Active | `main` |
 | [000-333-CR-Reports](https://github.com/kairin/000-333-CR-Reports) | Private | Original | Active | `main` |
+| [000-333-email-archive](https://github.com/kairin/000-333-email-archive) | Private | Original | Active | `main` |
 | [000-333-eml-convert](https://github.com/kairin/000-333-eml-convert) | Private | Original | Active | `main` |
 | [000-333-ip-tel](https://github.com/kairin/000-333-ip-tel) | Private | Original | Active | `main` |
 | [000-333-kyo-m](https://github.com/kairin/000-333-kyo-m) | Private | Original | Active | `main` |
@@ -84,10 +85,12 @@ Actual work stuff.
 | [000-333-problem-craft-base](https://github.com/kairin/000-333-problem-craft-base) | Private | Original | Active | `main` |
 | [000-333-pst-eml-convert-01](https://github.com/kairin/000-333-pst-eml-convert-01) | Private | Original | Active | `main` |
 | [000-333-pst-eml-not-done](https://github.com/kairin/000-333-pst-eml-not-done) | Private | Original | Active | `main` |
+| [000-333-rpa-pr-form](https://github.com/kairin/000-333-rpa-pr-form) | Private | Original | Active | `main` |
 | [000-333-screenforge-d002](https://github.com/kairin/000-333-screenforge-d002) | Private | Original | Active | `main` |
 | [000-333-screenforge-signage](https://github.com/kairin/000-333-screenforge-signage) | Private | Original | Active | `main` |
 | [000-333-stay-up](https://github.com/kairin/000-333-stay-up) | Public | Original | Active | `main` |
 | [000-333-supplier-invoices-grab](https://github.com/kairin/000-333-supplier-invoices-grab) | Private | Original | Active | `main` |
+| [000-333-supplier-payments](https://github.com/kairin/000-333-supplier-payments) | Private | Original | Active | `main` |
 | [000-333-vba-scripts](https://github.com/kairin/000-333-vba-scripts) | Private | Original | Active | `main` |
 | [000-333-WOG-Ref](https://github.com/kairin/000-333-WOG-Ref) | Private | Original | Active | `main` |
 
