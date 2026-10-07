@@ -112,3 +112,10 @@ The tables and repository counts on this page, [PERSONAL-PROJECTS.md](PERSONAL-P
 | `docs/local-sync.md` | What the script does, installation, logs, headless setup, and troubleshooting |
 
 There is no GitHub Actions workflow. The sync runs on a computer where the systemd timer is installed. A new private repository does not appear until it has an entry in `inventory-config.json`. For the steps, see [docs/local-sync.md](docs/local-sync.md).
+
+## Git identity
+
+Commit as `Mister K <678459+kairin@users.noreply.github.com>`. This is the
+public GitHub name and the GitHub noreply email. Do not commit with another
+name or with a personal email address. Check with `git config user.name` and
+`git config user.email` before you commit.
