@@ -1,9 +1,10 @@
 # 7 - Tier 999 - Archived
 
-All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks. This table lists 36 archived repositories out of 93 repositories in the GitHub account.
+All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks. This table lists 37 archived repositories out of 94 repositories in the GitHub account.
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
+| [000-333-OG-tools-archive](https://github.com/kairin/000-333-OG-tools-archive) | Private | Original | Archived | `main` | Private tooling repo |
 | [agents](https://github.com/kairin/agents) | Private | Original | Archived | `main` | — |
 | [broadcast](https://github.com/kairin/broadcast) | Public | Original | Archived | `main` | broadcast |
 | [choosing-a-database-2026](https://github.com/kairin/choosing-a-database-2026) | Public | Original | Archived | `main` | Research and adversarial reviews on choosing a database in 2026 |

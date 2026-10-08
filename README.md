@@ -3,10 +3,10 @@
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-08.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-09.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 93 repositories in the GitHub account.** This README lists 53 repositories across its tables (53 of 93); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 94 repositories in the GitHub account.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core
 
