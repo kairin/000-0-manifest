@@ -3,7 +3,7 @@
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-10.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-11.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
 **Total: 94 repositories in the GitHub account.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
@@ -73,7 +73,6 @@ Actual work stuff.
 | [000-333-cas-leave](https://github.com/kairin/000-333-cas-leave) | Private | Original | Active | `main` |
 | [000-333-email-archive](https://github.com/kairin/000-333-email-archive) | Private | Original | Active | `main` |
 | [000-333-eml-convert](https://github.com/kairin/000-333-eml-convert) | Private | Original | Active | `main` |
-| [000-333-ip-tel](https://github.com/kairin/000-333-ip-tel) | Private | Original | Active | `main` |
 | [000-333-kyo-m](https://github.com/kairin/000-333-kyo-m) | Private | Original | Active | `main` |
 | [000-333-nas](https://github.com/kairin/000-333-nas) | Private | Original | Active | `main` |
 | [000-333-og-digest](https://github.com/kairin/000-333-og-digest) | Private | Original | Active | `main` |
@@ -93,6 +92,7 @@ Actual work stuff.
 | [000-333-workday-supplier-grab](https://github.com/kairin/000-333-workday-supplier-grab) | Private | Original | Active | `main` |
 | [000-333-workday-supplier-kyocera](https://github.com/kairin/000-333-workday-supplier-kyocera) | Private | Original | Active | `main` |
 | [000-333-workday-supplier-payments](https://github.com/kairin/000-333-workday-supplier-payments) | Private | Original | Active | `main` |
+| [000-333-workday-supplier-telephony](https://github.com/kairin/000-333-workday-supplier-telephony) | Private | Original | Active | `main` |
 
 ## 6 - Tier 444 - Forks
 
