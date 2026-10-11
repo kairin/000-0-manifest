@@ -124,11 +124,14 @@ class InventoryTests(unittest.TestCase):
     def test_tier_prefix_routing(self):
         rows = [repo(1, '000-222-fun', private=True, visibility='private'),
                 repo(2, '000-333-job', private=True, visibility='private'),
-                repo(3, '000-444-copy', fork=True), repo(4, '000-999-old', archived=True)]
+                repo(3, '000-444-copy', fork=True), repo(4, '000-999-old', archived=True),
+                repo(6, '000-333-workday-suppliers', private=True, visibility='private')]
         cfg = config(*rows)
-        cfg['repositories']['1']['category'] = cfg['repositories']['2']['category'] = 'auto'
+        for rid in ('1', '2', '6'):
+            cfg['repositories'][rid]['category'] = 'auto'
         groups, omitted = sync.classify([rows], cfg)
         for key, name in (('personal', '000-222-fun'), ('work', '000-333-job'),
+                          ('workday', '000-333-workday-suppliers'),
                           ('forks', '000-444-copy'), ('archived', '000-999-old')):
             self.assertEqual([r['name'] for r in groups[key]], [name])
         self.assertEqual(groups['core'], [])
