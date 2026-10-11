@@ -12,18 +12,10 @@ When the work is done, delete this file.
 
 Each item needs an owner decision. Remove an item when it is resolved.
 
-- [ ] Make `000-333-stay-up` private. Every Tier 333 repository must be
-      private. Only the owner changes visibility, in the repository's GitHub
-      settings. Its approved entry in `inventory-config.json` keeps it listed.
-- [ ] Give every Tier 333 repository the same main-branch ruleset name. Ten
-      repositories protect `main` with a ruleset named `Protect main` or
-      `Minimal main protection` instead of `protect-main`; nine of those let a
-      repository role bypass it. The `no-branch-deletion` and
-      `no-branch-rewrite` rulesets already cover `main`, so protection is
-      equivalent. Repositories: `000-333-BCM`, `000-333-cas-leave`,
-      `000-333-eml-convert`, `000-333-kyo-m`, `000-333-OG-tools`,
-      `000-333-screenforge-signage`, `000-333-vba-scripts`, `000-333-WOG-Ref`,
-      `000-333-workday-procurement-forms`, `000-333-workday-supplier-kyocera`.
+- [ ] Finish the `000-333-stay-up` privacy clean-up. The owner decided on
+      2026-10-12 that it stays public as a tool for anyone, with no personal
+      or work details. The repository files are clean; the remaining items
+      are on GitHub and need the owner. Details are in the owner's notes.
 - [ ] Change `--publish` to deliver through a pull request. The
       `require-pull-request` ruleset rejects its direct push to `main`. See
       [docs/local-sync.md](docs/local-sync.md#publishing-rules-and-schedule).

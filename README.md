@@ -78,7 +78,7 @@ Work projects related to Workday, named `000-333-workday-`. Every repository in 
 
 ## 6 - Tier 333 - Work: Other projects
 
-All other work projects, named `000-333-`. Every repository in this tier must be private and carry the standard GitHub rulesets: `protect-main`, `require-pull-request`, `no-branch-deletion`, `no-branch-rewrite` and `branch-naming` (new branches are named `YYYYMMDD-HHMMSS-short-name`). `python3 ~/Apps/000-0-ai/local-bin/github-protection.py` checks the rulesets; the Visibility column shows any repository that is not yet private.
+All other work projects, named `000-333-`. Every repository in this tier must be private, except `000-333-stay-up`: it is a public tool for anyone to use and must contain no personal or work details. Every repository in this tier must also carry the standard GitHub rulesets: `protect-main`, `require-pull-request`, `no-branch-deletion`, `no-branch-rewrite` and `branch-naming` (new branches are named `YYYYMMDD-HHMMSS-short-name`). `python3 ~/Apps/000-0-ai/local-bin/github-protection.py` checks the rulesets; the Visibility column shows any repository that is not yet private.
 
 | Repository | Visibility | Type | State | Default branch |
 |---|---|---|---|---|
