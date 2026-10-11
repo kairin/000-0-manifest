@@ -18,6 +18,8 @@ MESSAGE = 'docs: sync GitHub repository inventory'
 # Name prefixes that fix an active original's section. Forks (000-444-) and
 # archived repositories (000-999-) are placed by GitHub state, not by name.
 TIERS = {'000-111-': 'learning', '000-222-': 'personal', '000-333-': 'work'}
+CONFIG_CATEGORIES = frozenset(('personal', 'work', 'auto'))
+UNLISTED_PRIVATE_POLICIES = frozenset(('error', 'omit'))
 
 
 class SyncError(Exception):
@@ -63,13 +65,32 @@ def fetch():
                           'user/repos?affiliation=owner&visibility=all&per_page=100']))
 
 
+def validate_config(config):
+    if not isinstance(config, dict) or set(config) - {'account', 'repositories', 'unlisted_private'}:
+        raise SyncError('Invalid inventory configuration')
+    if config.get('account') != 'kairin' or not isinstance(config.get('repositories'), dict):
+        raise SyncError('Invalid inventory configuration')
+    policy = config.get('unlisted_private', 'error')
+    if not isinstance(policy, str) or policy not in UNLISTED_PRIVATE_POLICIES:
+        raise SyncError('Invalid inventory configuration')
+    for rid, entry in config['repositories'].items():
+        if (not isinstance(rid, str) or not re.fullmatch(r'[1-9]\d*', rid)
+                or not isinstance(entry, dict) or set(entry) != {'name', 'category'}
+                or not isinstance(entry['name'], str) or not entry['name']
+                or not isinstance(entry['category'], str) or entry['category'] not in CONFIG_CATEGORIES):
+            raise SyncError('Invalid inventory configuration')
+    return policy
+
+
 def classify(pages, config):
     if not isinstance(pages, list) or not pages or any(not isinstance(p, list) for p in pages):
         raise SyncError('Invalid API page list')
+    unlisted_private = validate_config(config)
     approved = config['repositories']
     account = config['account'].lower()
     groups = {k: [] for k in ('core', 'public', 'learning', 'personal', 'work', 'archived', 'forks')}
     seen = set()
+    omitted = 0
     for page in pages:
         for repo in page:
             try:
@@ -93,10 +114,13 @@ def classify(pages, config):
             if owner.lower() != account:
                 continue
             if rid in seen:
-                raise SyncError(f'Duplicate repository ID: {rid}')
+                raise SyncError('Duplicate repository ID in GitHub response')
             seen.add(rid)
             if repo['visibility'] != 'public' and rid not in approved:
-                raise SyncError(f'New private repository needs an explicit publish entry: {name} ({rid})')
+                if unlisted_private == 'omit':
+                    omitted += 1
+                    continue
+                raise SyncError('Unlisted private/internal repository requires approval')
             if repo['archived']:
                 group = 'archived'
             elif repo['fork']:
@@ -108,15 +132,14 @@ def classify(pages, config):
             else:
                 group = approved.get(rid, {}).get('category')
                 if group not in ('personal', 'work'):
-                    raise SyncError(f'Repository needs personal/work classification: {name} ({rid})')
+                    raise SyncError('Repository requires personal/work classification')
             groups[group].append(repo)
     missing = set(approved) - seen
     if missing:
-        names = ', '.join(approved[r]['name'] for r in sorted(missing))
-        raise SyncError(f'Expected repositories missing; check access/deletion before changing config: {names}')
+        raise SyncError(f'{len(missing)} approved repositories missing from GitHub response')
     for rows in groups.values():
         rows.sort(key=lambda r: (r['name'].casefold(), r['name']))
-    return groups
+    return groups, omitted
 
 
 def escape(value):
@@ -251,10 +274,8 @@ def main():
                 return 0
             ahead = prepare_publish(ROOT, 'kairin')
         config = json.loads((ROOT / 'inventory-config.json').read_text())
-        if config['account'] != 'kairin':
-            raise SyncError('Unexpected account in config')
         pages = fetch()
-        groups = classify(pages, config)  # Validate entire snapshot before page writes.
+        groups, omitted = classify(pages, config)  # Validate entire snapshot before page writes.
         original = {name: (ROOT / name).read_text() for name in FILES}
         rendered = render(original, groups, config['account'])
         changed = [name for name in FILES if original[name] != rendered[name]]
@@ -270,6 +291,7 @@ def main():
                 run(['git', 'commit', '-m', MESSAGE, '--', *FILES])
             if args.publish and (changed or ahead):
                 run(['git', 'push', 'origin', 'HEAD:refs/heads/main'])
+        print(f'Omitted {omitted} unlisted private/internal repositories.')
         print(f'Validated {sum(map(len, groups.values()))} repositories; {len(changed)} pages changed.')
         return 2 if args.check and changed else 0
     except TemporaryError as exc:

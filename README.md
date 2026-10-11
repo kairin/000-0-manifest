@@ -6,7 +6,7 @@ GitHub account: [@kairin](https://github.com/kairin)<br>
 Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-11.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 94 repositories in the GitHub account.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 13 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 94 repositories in the published inventory.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 12 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core
 
@@ -34,6 +34,7 @@ All other private repositories with names beginning `000-` and no tier number (`
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
 | [000-111-learn](https://github.com/kairin/000-111-learn) | Public | Original | Active | `main` | Teaches Assembly and Fortran through small game tutorials to build fast programs that run close to the hardware. |
+| [000-111-multi-agent-orchestration-learning](https://github.com/kairin/000-111-multi-agent-orchestration-learning) | Public | Original | Active | `main` | Learning resource for decomposing tasks, coordinating multiple agents, and reviewing handoffs, verification, and integration through historical case studies. Documentation only. |
 | [000-111-workday-automation-learning](https://github.com/kairin/000-111-workday-automation-learning) | Public | Original | Active | `main` | Explores Rust browser shells and semantic browser automation so LLMs can inspect pages, operate controls and verify results. |
 
 ## 4 - Tier 222 - Personal
@@ -51,7 +52,6 @@ Personal projects — just for fun.
 | [000-222-graph-obsidian](https://github.com/kairin/000-222-graph-obsidian) | Private | Original | Active | `main` |
 | [000-222-image-tools](https://github.com/kairin/000-222-image-tools) | Private | Original | Active | `main` |
 | [000-222-my-comfyui-nodes](https://github.com/kairin/000-222-my-comfyui-nodes) | Public | Original | Active | `main` |
-| [000-222-openrig-breakdown](https://github.com/kairin/000-222-openrig-breakdown) | Public | Original | Active | `main` |
 | [000-222-predict-c](https://github.com/kairin/000-222-predict-c) | Private | Original | Active | `main` |
 | [000-222-rust-feh](https://github.com/kairin/000-222-rust-feh) | Public | Original | Active | `main` |
 | [000-222-self-evolving-agentic-graph-memory-engine](https://github.com/kairin/000-222-self-evolving-agentic-graph-memory-engine) | Private | Original | Active | `main` |
@@ -109,9 +109,9 @@ The tables and repository counts on this page, [PERSONAL-PROJECTS.md](PERSONAL-P
 | Path | Contents |
 |---|---|
 | `scripts/sync_manifest.py` | Script that reads the repository list from GitHub and regenerates the four pages |
-| `inventory-config.json` | Approved repository IDs and their categories (`personal`, `work`, or `auto`) |
+| `inventory-config.json` | Approved repository IDs and their categories (`personal`, `work`, or `auto`), plus the optional `unlisted_private` policy |
 | `systemd/` | Timer and service that run the script each night on one computer |
 | `tests/` | Unit tests for the script |
 | `docs/local-sync.md` | What the script does, installation, logs, headless setup, and troubleshooting |
 
-There is no GitHub Actions workflow. The sync runs on a computer where the systemd timer is installed. A new private repository does not appear until it has an entry in `inventory-config.json`. For the steps, see [docs/local-sync.md](docs/local-sync.md).
+There is no GitHub Actions workflow. The sync runs on a computer where the systemd timer is installed. By default, a new private repository stops the sync until it has an entry in `inventory-config.json`; the explicit `unlisted_private: "omit"` policy excludes unlisted private or internal records from the published inventory and reports only their count. For the steps, see [docs/local-sync.md](docs/local-sync.md).
