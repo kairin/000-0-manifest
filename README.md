@@ -6,7 +6,7 @@ GitHub account: [@kairin](https://github.com/kairin)<br>
 Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-11.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 94 repositories in the GitHub account.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 14 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 94 repositories in the GitHub account.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 13 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core
 
@@ -25,6 +25,7 @@ All other private repositories with names beginning `000-` and no tier number (`
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
 | [000-0-ASD-STE100](https://github.com/kairin/000-0-ASD-STE100) | Public | Original | Active | `main` | Provides Simplified Technical English writing rules and a prose checker to help readers understand technical documents. |
+| [000-0-ghostty](https://github.com/kairin/000-0-ghostty) | Public | Original | Active | `main` | Ghostty terminal on RHEL 10: Flatpak built from the signed release, bash integration, and the current configuration. Updates run through the update command in 000-0-ai. |
 | [000-0-manifest](https://github.com/kairin/000-0-manifest) | Public | Original | Active | `main` | Lists repositories in the kairin GitHub account, with separate records for forks and archived projects. |
 | [000-0-tmux-cheat-sheet](https://github.com/kairin/000-0-tmux-cheat-sheet) | Public | Original | Active | `main` | Teaches basic tmux commands to keep AI agents running in separate terminal sessions, even after the terminal closes. |
 
@@ -47,7 +48,6 @@ Personal projects — just for fun.
 | [000-222-codex-playwright-cdp](https://github.com/kairin/000-222-codex-playwright-cdp) | Private | Original | Active | `main` |
 | [000-222-comfyui-rtx5090](https://github.com/kairin/000-222-comfyui-rtx5090) | Private | Original | Active | `main` |
 | [000-222-enom-projects](https://github.com/kairin/000-222-enom-projects) | Private | Original | Active | `main` |
-| [000-222-ghostty-config-files](https://github.com/kairin/000-222-ghostty-config-files) | Public | Original | Active | `main` |
 | [000-222-graph-obsidian](https://github.com/kairin/000-222-graph-obsidian) | Private | Original | Active | `main` |
 | [000-222-image-tools](https://github.com/kairin/000-222-image-tools) | Private | Original | Active | `main` |
 | [000-222-my-comfyui-nodes](https://github.com/kairin/000-222-my-comfyui-nodes) | Public | Original | Active | `main` |
