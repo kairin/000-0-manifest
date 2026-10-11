@@ -1,5 +1,6 @@
 {
   "account": "kairin",
+  "unlisted_private": "omit",
   "repositories": {
     "1391487456": {
       "name": "000-0-ai",

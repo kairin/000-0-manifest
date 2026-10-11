@@ -19,7 +19,7 @@ A `--publish` run does these steps in order:
 1. Takes a lock in `.git/manifest-sync.lock`. If another run holds it, the run exits 0 without changes.
 2. Checks that the checkout is at `~/.local/share/manifest-sync`, is clean, is on `main`, and has an accepted origin. Then it fetches and fast-forwards `main`.
 3. Reads all owned repositories with `gh api --paginate user/repos?affiliation=owner&visibility=all`.
-4. Validates the full snapshot against `inventory-config.json` and sorts each repository into a group. Any validation error stops the run before a page is written.
+4. Validates the full snapshot against `inventory-config.json` and sorts each repository into a group. Any validation error stops the run before a page is written. When configured, it reports only a count of omitted unlisted private or internal repositories.
 5. Renders the four pages. If a page changed, it commits only those pages with the message `docs: sync GitHub repository inventory` and pushes to `main`. If nothing changed, it makes no commit.
 
 Run a read-only preview from this repository:
@@ -42,11 +42,11 @@ The script is not a general formatter. In `README.md`, `PERSONAL-PROJECTS.md`, `
 
 Other text on these pages, such as headings and prose, stays as written. The script finds its parts by pattern. If an edit adds or removes a `| Repository |` table, or changes the wording of a count or date sentence, the run stops with `Page layout changed` and writes nothing. To add a table, a section, or a category, change `render()` and the tests in the same commit.
 
-The script does not change any other file. Change `inventory-config.json` and the documentation by hand.
+The script does not change any other file. Change `inventory-config.json` and the documentation by hand. `unlisted_private` is an optional policy enum: leave it unset (or set it to `error`) to refuse unlisted private or internal repositories, or set it to `omit` to exclude only those unlisted non-public records. The omission diagnostic contains a count only; no repository name, ID, URL, or metadata is written to generated pages or logs.
 
 ## Classification and new repositories
 
-The classification order is archived (tier 999), active fork (tier 444), then the name prefix of an active original: `000-111-` learning, `000-222-` personal, `000-333-` work, other `000-` core/public. Remaining originals, including `000-444-` and `000-999-` names that are no longer forks or archived, use their configured personal/work category. Unknown public archived/fork/core repositories can be included automatically. A new private or internal repository always needs an explicit config entry before publication. Every previously approved ID must be present; deletion, transfer, and lost access require review. To add an entry, use its numeric REST API `id`, name, and category (`personal`, `work`, or `auto` for core/fork/archive). Remove an entry only after confirming why it disappeared. An unarchived noncore original needs personal/work classification.
+The classification order is archived (tier 999), active fork (tier 444), then the name prefix of an active original: `000-111-` learning, `000-222-` personal, `000-333-` work, other `000-` core/public. Remaining originals, including `000-444-` and `000-999-` names that are no longer forks or archived, use their configured personal/work category. Unknown public archived/fork/core repositories can be included automatically. By default, a new private or internal repository stops the sync until it has an explicit config entry. With `unlisted_private: "omit"`, only unlisted private or internal records are excluded; explicitly configured private records remain included, and public records follow normal classification. Omitted records do not contribute to generated tables or counts. Every previously approved ID must be present; deletion, transfer, and lost access require review. To add an entry, use its numeric REST API `id`, name, and category (`personal`, `work`, or `auto` for core/fork/archive). Remove an entry only after confirming why it disappeared. An unarchived noncore original needs personal/work classification.
 
 To get the ID of a repository:
 
