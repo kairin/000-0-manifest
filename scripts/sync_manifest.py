@@ -6,6 +6,7 @@ import difflib
 import html
 import fcntl
 import json
+import os
 import re
 import subprocess
 import sys
@@ -15,6 +16,10 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 FILES = ('README.md', 'PERSONAL-PROJECTS.md', 'ARCHIVED.md', 'FORKS.md')
 MESSAGE = 'docs: sync GitHub repository inventory'
+BRANCH_SUFFIX = '-inventory-sync'
+PR_BODY = 'Automatic inventory refresh from the scheduled manifest sync. Only the four generated pages change.'
+# Optional token for the pull request calls, when the default gh token is read-only.
+PR_TOKEN = 'MANIFEST_SYNC_PR_TOKEN'
 # Name prefixes that fix an active original's section, longest match first.
 # Forks (000-444-) and archived repositories (000-999-) are placed by GitHub
 # state, not by name.
@@ -33,9 +38,9 @@ class TemporaryError(SyncError):
     pass
 
 
-def run(args, cwd=ROOT):
+def run(args, cwd=ROOT, env=None):
     try:
-        result = subprocess.run(args, cwd=cwd, text=True, capture_output=True, timeout=90)
+        result = subprocess.run(args, cwd=cwd, text=True, capture_output=True, timeout=90, env=env)
     except subprocess.TimeoutExpired as exc:
         raise TemporaryError(f'{args[0]} timed out') from exc
     if result.returncode:
@@ -254,13 +259,41 @@ def prepare_publish(root, account):
     return bool(ahead)
 
 
+def publish(root, account, now=None):
+    """Deliver local sync commits through a merged pull request; main is never pushed."""
+    repo = f'{account}/000-0-manifest'
+    env = None
+    if os.environ.get(PR_TOKEN):
+        env = dict(os.environ, GH_TOKEN=os.environ[PR_TOKEN])
+    gh = lambda *args: run(['gh', *args, '--repo', repo], root, env).strip()
+    git = lambda *args: run(['git', *args], root).strip()
+    head = git('rev-parse', 'HEAD')
+    # Reuse the pull request of an earlier run that pushed this commit but did not merge it.
+    prs = json.loads(gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100',
+                        '--json', 'number,headRefName,headRefOid') or '[]')
+    pending = [p for p in prs if p.get('headRefOid') == head
+               and re.fullmatch(r'\d{8}-\d{6}' + re.escape(BRANCH_SUFFIX), str(p.get('headRefName')))]
+    if pending:
+        target = str(pending[0]['number'])
+    else:
+        now = now or datetime.datetime.now(ZoneInfo('Asia/Singapore'))
+        target = now.strftime('%Y%m%d-%H%M%S') + BRANCH_SUFFIX
+        git('push', 'origin', f'HEAD:refs/heads/{target}')
+        gh('pr', 'create', '--base', 'main', '--head', target, '--title', MESSAGE, '--body', PR_BODY)
+    # A merge commit keeps the local commit an ancestor of main, so main fast-forwards.
+    gh('pr', 'merge', target, '--merge', '--match-head-commit', head)
+    git('fetch', 'origin', 'main')
+    git('merge', '--ff-only', 'origin/main')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--dry-run', action='store_true', help='show diff; write nothing (default)')
     mode.add_argument('--check', action='store_true', help='exit 2 when pages would change')
     mode.add_argument('--write', action='store_true', help='update only the four local pages')
-    mode.add_argument('--publish', action='store_true', help='update and push from dedicated checkout')
+    mode.add_argument('--publish', action='store_true',
+                      help='update and merge a pull request from dedicated checkout')
     args = parser.parse_args()
     lock = None
     try:
@@ -293,7 +326,7 @@ def main():
                 run(['git', 'add', '--', *FILES])
                 run(['git', 'commit', '-m', MESSAGE, '--', *FILES])
             if args.publish and (changed or ahead):
-                run(['git', 'push', 'origin', 'HEAD:refs/heads/main'])
+                publish(ROOT, config['account'])
         print(f'Omitted {omitted} unlisted private/internal repositories.')
         print(f'Validated {sum(map(len, groups.values()))} repositories; {len(changed)} pages changed.')
         return 2 if args.check and changed else 0

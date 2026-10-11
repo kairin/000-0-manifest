@@ -16,9 +16,6 @@ Each item needs an owner decision. Remove an item when it is resolved.
       2026-10-12 that it stays public as a tool for anyone, with no personal
       or work details. The repository files are clean; the remaining items
       are on GitHub and need the owner. Details are in the owner's notes.
-- [ ] Change `--publish` to deliver through a pull request. The
-      `require-pull-request` ruleset rejects its direct push to `main`. See
-      [docs/local-sync.md](docs/local-sync.md#publishing-rules-and-schedule).
 - [ ] Archived repositories with open Dependabot pull requests. Archived
       repositories are read-only. To close a pull request, unarchive the
       repository, close it, and archive the repository again:

@@ -10,7 +10,7 @@ There is no GitHub Actions workflow. The sync runs only on a computer where the 
 |---|---|---|
 | Timer | `~/.config/systemd/user/manifest-sync.timer` (copied from `systemd/`) | Starts the service at 02:00 Asia/Singapore, after a missed night, and one minute after the user manager starts. |
 | Service | `~/.config/systemd/user/manifest-sync.service` (copied from `systemd/`) | Runs `python3 ~/.local/share/manifest-sync/scripts/sync_manifest.py --publish` once, with a five-minute timeout. |
-| Script | `scripts/sync_manifest.py` in the dedicated checkout `~/.local/share/manifest-sync` | Fetches, validates, renders, commits, and pushes. |
+| Script | `scripts/sync_manifest.py` in the dedicated checkout `~/.local/share/manifest-sync` | Fetches, validates, renders, commits, and merges the change through a pull request. |
 | Config | `inventory-config.json` | Account name and approved repository IDs with their categories. |
 | Tests | `tests/test_sync_manifest.py` | Unit tests for classification, rendering, and publish safety checks. |
 
@@ -20,7 +20,7 @@ A `--publish` run does these steps in order:
 2. Checks that the checkout is at `~/.local/share/manifest-sync`, is clean, is on `main`, and has an accepted origin. Then it fetches and fast-forwards `main`.
 3. Reads all owned repositories with `gh api --paginate user/repos?affiliation=owner&visibility=all`.
 4. Validates the full snapshot against `inventory-config.json` and sorts each repository into a group. Any validation error stops the run before a page is written. When configured, it reports only a count of omitted unlisted private or internal repositories.
-5. Renders the four pages. If a page changed, it commits only those pages with the message `docs: sync GitHub repository inventory` and pushes to `main`. If nothing changed, it makes no commit.
+5. Renders the four pages. If a page changed, it commits only those pages with the message `docs: sync GitHub repository inventory`. It pushes the commit to a new branch named `YYYYMMDD-HHMMSS-inventory-sync`, opens a pull request into `main`, merges it with a merge commit, and fast-forwards the local `main`. It never pushes to `main` and never deletes the branch. If nothing changed, it makes no commit.
 
 Run a read-only preview from this repository:
 
@@ -54,7 +54,7 @@ To get the ID of a repository:
 gh api repos/kairin/REPOSITORY-NAME --jq .id
 ```
 
-Add the entry in a development checkout, then run `python3 scripts/sync_manifest.py --write` and the tests. Commit the config and the four pages together, and push. Do not make this change in the dedicated checkout, because the scheduled job stops when that checkout is dirty or has unexpected commits.
+Add the entry in a development checkout, then run `python3 scripts/sync_manifest.py --write` and the tests. Commit the config and the four pages together, and deliver them through a branch and pull request. Do not make this change in the dedicated checkout, because the scheduled job stops when that checkout is dirty or has unexpected commits.
 
 ## Fixed values
 
@@ -66,14 +66,15 @@ These values are in the code and the unit files, not in a settings file. To chan
 | Dedicated checkout `~/.local/share/manifest-sync` | `scripts/sync_manifest.py` and `systemd/manifest-sync.service` |
 | Time zone `Asia/Singapore` for the schedule and the page date | `systemd/manifest-sync.timer` and `scripts/sync_manifest.py` |
 | Run time 02:00 | `systemd/manifest-sync.timer` |
-| Commit message `docs: sync GitHub repository inventory` | `scripts/sync_manifest.py` |
+| Commit message and pull request title `docs: sync GitHub repository inventory` | `scripts/sync_manifest.py` |
+| Branch name `YYYYMMDD-HHMMSS-inventory-sync` (Asia/Singapore time) | `scripts/sync_manifest.py` |
 | Accepted origins | `https://github.com/kairin/000-0-manifest(.git)` and `git@github.com:kairin/000-0-manifest.git` |
 
 ## Install after the changes are committed to GitHub
 
-Install the timer on **one computer only**. Two computers with the timer make the same commit. The second push then fails or stops for review, which causes failed runs but no lost data. To move the sync to a different computer, see [Move the sync to a different computer](#move-the-sync-to-a-different-computer).
+Install the timer on **one computer only**. Two computers with the timer make the same change in two pull requests. The second merge then fails or stops for review, which causes failed runs but no lost data. To move the sync to a different computer, see [Move the sync to a different computer](#move-the-sync-to-a-different-computer).
 
-Requires Python 3.9 or later with timezone data, Git, GitHub CLI, and a systemd user session. The `gh` credentials must read every owned repository, including private repositories. Git must be able to push to this manifest repository through the origin of the dedicated checkout. Configure a Git commit identity once (`git config --global user.name` and `user.email`). For an HTTPS origin, run `gh auth setup-git` once so Git uses the `gh` login. For a headless computer, use the credentials in [Headless computers](#headless-computers) instead.
+Requires Python 3.9 or later with timezone data, Git, GitHub CLI, and a systemd user session. The `gh` credentials must read every owned repository, including private repositories. Git must be able to push a branch to this manifest repository through the origin of the dedicated checkout, and `gh` must be able to open and merge pull requests in it. Configure a Git commit identity once (`git config --global user.name` and `user.email`). For an HTTPS origin, run `gh auth setup-git` once so Git uses the `gh` login. For a headless computer, use the credentials in [Headless computers](#headless-computers) instead.
 
 Use a dedicated clean checkout so the scheduled job does not touch the development checkout:
 
@@ -109,7 +110,7 @@ Successful runs report how many repositories were checked and how many pages cha
 
 ## Publishing rules and schedule
 
-Review the first service run before enabling the timer. The service publishes directly to `main` using a normal push. It requires the dedicated path above, a clean checkout, branch `main`, and an accepted origin (see [Fixed values](#fixed-values)). It fetches and fast-forwards before rendering, and commits only the four generated pages. If a push fails, the next run can retry commits with the sync commit message that touch only those pages. Diverged history, unexpected commits, or a dirty checkout stop the job for review. Fix a dirty checkout by inspecting its diff; do not discard it blindly. **Current limit:** the `require-pull-request` ruleset on this repository has no bypass, so GitHub now rejects this direct push to `main`. Until `--publish` is changed to open a pull request, refresh the pages from a development checkout with `--write` and deliver them through a branch and pull request.
+Review the first service run before enabling the timer. The service never pushes to `main`. The `require-pull-request` ruleset has no bypass, so every change goes through a pull request: the service pushes a new branch, opens a pull request, and merges it with a merge commit. The merge commit keeps the local commit in the history of `main`, so the local `main` fast-forwards afterwards. It requires the dedicated path above, a clean checkout, branch `main`, and an accepted origin (see [Fixed values](#fixed-values)). It fetches and fast-forwards before rendering, and commits only the four generated pages. If a push, pull request, or merge fails, the local commit stays on `main` and the next run retries it. Commits are accepted for retry only when they have the sync commit message and touch only those pages. When an open pull request from an earlier run already has the same commit, the next run merges that pull request instead of opening another one. If you merge a sync pull request by hand, use a merge commit; a squash or rebase merge makes the dedicated checkout diverge and stops the job for review. Diverged history, unexpected commits, or a dirty checkout stop the job for review. Fix a dirty checkout by inspecting its diff; do not discard it blindly.
 
 The timer runs at **02:00 Asia/Singapore**, catches up once after a missed night, and also checks one minute after the user manager starts. With lingering enabled, the startup check follows boot; otherwise it follows login. This extra check is harmless when the pages have no changes, and restores retries after another reboot. Without lingering, the user manager normally starts at login; a keyring-backed `gh` login may also need the desktop unlocked. First-login catch-up is the default. If the timer fires before the desktop keyring unlocks, local GitHub CLI credential errors retry every five minutes. Unlock the desktop keyring to let a later attempt complete. The timer does not wake a powered-off computer. Pre-login operation additionally needs lingering (`loginctl enable-linger "$USER"`), available home storage, and credentials that work without desktop unlock.
 
@@ -124,7 +125,7 @@ systemctl --user stop manifest-sync.service
 
 ## Headless computers
 
-A computer without a desktop session, such as a small always-on ARM board running Armbian, can run the sync at 02:00 every night. It has no desktop keyring, so it needs credentials stored in files. Use two limited credentials instead of a full `gh auth login`. If the computer is lost, these credentials can only list repository metadata and push to this one repository.
+A computer without a desktop session, such as a small always-on ARM board running Armbian, can run the sync at 02:00 every night. It has no desktop keyring, so it needs credentials stored in files. Use two limited credentials instead of a full `gh auth login`. If the computer is lost, these credentials can only list repository metadata and change this one repository.
 
 The `gh` packages for Debian and Ubuntu include ARM builds. Install `python3`, `tzdata`, `git`, and `gh` with the package manager.
 
@@ -156,6 +157,18 @@ Make sure that the token can read the private repositories. The result must be t
 
 ```sh
 ( set -a; . ~/.config/manifest-sync/token.env; gh api --paginate 'user/repos?affiliation=owner&visibility=all&per_page=100' --jq '.[].id' | wc -l )
+```
+
+The read-only token cannot open or merge pull requests. Create a second fine-grained token for that:
+
+- Resource owner: `kairin`
+- Repository access: **Only select repositories**, `kairin/000-0-manifest`
+- Repository permissions: **Contents: Read and write** and **Pull requests: Read and write**
+
+Add it to the same file. The script uses `MANIFEST_SYNC_PR_TOKEN` only for its pull request calls:
+
+```sh
+echo 'MANIFEST_SYNC_PR_TOKEN=PASTE-SECOND-TOKEN-HERE' >> ~/.config/manifest-sync/token.env
 ```
 
 ### 2. Write access: deploy key for Git

@@ -33,7 +33,7 @@ python3 scripts/sync_manifest.py --check
 python3 -m unittest discover -s tests -v
 ```
 
-`--write` updates the four local pages. `--publish` updates and pushes from a dedicated checkout. See `docs/local-sync.md` for installation, logs and troubleshooting.
+`--write` updates the four local pages. `--publish` updates the pages from a dedicated checkout and merges them through a pull request; it never pushes to `main`. See `docs/local-sync.md` for installation, logs and troubleshooting.
 
 A task is done only when you show evidence: command output, a log line or a screenshot.
 

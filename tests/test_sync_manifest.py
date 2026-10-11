@@ -185,9 +185,52 @@ class InventoryTests(unittest.TestCase):
                  patch.object(sync, 'fetch', return_value=[[r]]), \
                  patch.object(sync, 'render', side_effect=lambda original, *args: original), \
                  patch.object(sync, 'run', return_value='') as run, \
+                 patch.object(sync, 'publish') as publish, \
                  patch.object(sync.sys, 'argv', ['sync_manifest.py', '--publish']):
                 self.assertEqual(sync.main(), 0)
-                run.assert_called_once_with(['git', 'push', 'origin', 'HEAD:refs/heads/main'])
+                run.assert_not_called()
+                publish.assert_called_once_with(root, 'kairin')
+
+    def test_publish_opens_and_merges_pull_request_without_pushing_main(self):
+        import datetime
+        calls = []
+        def output(args, cwd, env=None):
+            calls.append(args)
+            if args[:2] == ['git', 'rev-parse']:
+                return 'abc\n'
+            if args[:3] == ['gh', 'pr', 'list']:
+                return json.dumps([{'number': 7, 'headRefName': 'feature', 'headRefOid': 'abc'}])
+            return ''
+        now = datetime.datetime(2026, 10, 12, 2, 0, 5)
+        with patch.object(sync, 'run', side_effect=output), patch.dict(sync.os.environ, clear=True):
+            sync.publish(ROOT, 'kairin', now)
+        branch = '20261012-020005-inventory-sync'
+        self.assertIn(['git', 'push', 'origin', f'HEAD:refs/heads/{branch}'], calls)
+        self.assertIn(['gh', 'pr', 'merge', branch, '--merge', '--match-head-commit', 'abc',
+                       '--repo', 'kairin/000-0-manifest'], calls)
+        self.assertEqual(calls[-1], ['git', 'merge', '--ff-only', 'origin/main'])
+        self.assertFalse(any('HEAD:refs/heads/main' in a for a in calls))
+        self.assertFalse(any('--delete-branch' in a or '-d' in a for a in calls))
+
+    def test_publish_reuses_pending_pull_request_and_pr_token(self):
+        calls = []
+        def output(args, cwd, env=None):
+            calls.append((args, env and env.get('GH_TOKEN')))
+            if args[:2] == ['git', 'rev-parse']:
+                return 'abc'
+            if args[:3] == ['gh', 'pr', 'list']:
+                return json.dumps([{'number': 9, 'headRefName': '20261011-020000-inventory-sync',
+                                    'headRefOid': 'abc'}])
+            return ''
+        with patch.object(sync, 'run', side_effect=output), \
+             patch.dict(sync.os.environ, {sync.PR_TOKEN: 'pr-token'}, clear=True):
+            sync.publish(ROOT, 'kairin')
+        commands = [args for args, _ in calls]
+        self.assertFalse(any(a[:2] == ['git', 'push'] for a in commands))
+        self.assertFalse(any(a[:3] == ['gh', 'pr', 'create'] for a in commands))
+        self.assertIn(['gh', 'pr', 'merge', '9', '--merge', '--match-head-commit', 'abc',
+                       '--repo', 'kairin/000-0-manifest'], commands)
+        self.assertTrue(all(token == 'pr-token' for args, token in calls if args[0] == 'gh'))
 
     def test_fetch_pagination_arguments(self):
         with patch.object(sync, 'run', return_value='[[{"id":1}],[]]') as run:
