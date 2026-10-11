@@ -125,51 +125,38 @@ systemctl --user stop manifest-sync.service
 
 ## Headless computers
 
-A computer without a desktop session, such as a small always-on ARM board running Armbian, can run the sync at 02:00 every night. It has no desktop keyring, so it needs credentials stored in files. Use two limited credentials instead of a full `gh auth login`. If the computer is lost, these credentials can only list repository metadata and change this one repository.
+A computer without a desktop session, such as a small always-on ARM board running Armbian, can run the sync at 02:00 every night. Use two limited tokens instead of a full `gh auth login`. If the computer is lost, these tokens can only list repository metadata and change this one repository.
 
-The `gh` packages for Debian and Ubuntu include ARM builds. Install `python3`, `tzdata`, `git`, and `gh` with the package manager.
+The tokens are secrets, so they live in the `pass` store and the service gets them only through `with-secret` (from the `000-0-password` repository). They are never in a file in plain text, in the service unit, or in shell history. The tracked file `.secrets.allow` in this repository lists the two entry names and their variables; it holds no values. The project name for `with-secret` is the name of the dedicated checkout folder, `manifest-sync`.
 
-### 1. Read access: fine-grained token for `gh`
+The `gh` packages for Debian and Ubuntu include ARM builds. Install `python3`, `tzdata`, `git`, `gh`, `pass`, and `gnupg` with the package manager. Set up the `pass` store and install `with-secret` in `~/.local/bin` as `SECRETS-GUIDE.md` in `000-0-password` describes.
 
-On GitHub, create a fine-grained personal access token with these settings:
+### 1. Tokens in `pass`
+
+On GitHub, create two fine-grained personal access tokens.
+
+Read token, for the inventory:
 
 - Resource owner: `kairin`
 - Repository access: **All repositories**
 - Repository permissions: **Metadata: Read-only** only
 
-Write down the expiry date. After the token expires, runs fail with exit 1 until you replace it. Store the token in a file that only your user can read:
-
-```sh
-mkdir -p ~/.config/manifest-sync
-install -m 600 /dev/null ~/.config/manifest-sync/token.env
-echo 'GH_TOKEN=PASTE-TOKEN-HERE' > ~/.config/manifest-sync/token.env
-```
-
-Give the token to the service with a drop-in file. A drop-in keeps `systemd/manifest-sync.service` unchanged:
-
-```sh
-mkdir -p ~/.config/systemd/user/manifest-sync.service.d
-printf '[Service]\nEnvironmentFile=%%h/.config/manifest-sync/token.env\n' \
-  > ~/.config/systemd/user/manifest-sync.service.d/token.conf
-```
-
-Make sure that the token can read the private repositories. The result must be the total number of repositories in the account:
-
-```sh
-( set -a; . ~/.config/manifest-sync/token.env; gh api --paginate 'user/repos?affiliation=owner&visibility=all&per_page=100' --jq '.[].id' | wc -l )
-```
-
-The read-only token cannot open or merge pull requests. Create a second fine-grained token for that:
+Pull request token, to open and merge the sync pull request (the read token cannot do this):
 
 - Resource owner: `kairin`
 - Repository access: **Only select repositories**, `kairin/000-0-manifest`
 - Repository permissions: **Contents: Read and write** and **Pull requests: Read and write**
 
-Add it to the same file. The script uses `MANIFEST_SYNC_PR_TOKEN` only for its pull request calls:
+Write down both expiry dates. After a token expires, runs fail with exit 1 until you replace it. Store each token in `pass`. `pass insert` asks for the value without showing it, so the value does not go into shell history:
 
 ```sh
-echo 'MANIFEST_SYNC_PR_TOKEN=PASTE-SECOND-TOKEN-HERE' >> ~/.config/manifest-sync/token.env
+pass insert apps/manifest-sync/github/inventory-read
+pass insert apps/manifest-sync/github/pull-request
 ```
+
+The service gets `GH_TOKEN` and `MANIFEST_SYNC_PR_TOKEN` from these entries. You install the service drop-in in step 3, after the clone.
+
+**Unlock limit:** `with-secret` reuses the gpg-agent unlock for up to 24 hours. A headless computer has no askpass dialog, so a run after the unlock expires, or after a reboot, stops with exit 3 and does not retry. To unlock, sign in over SSH and run `pass show apps/manifest-sync/github/inventory-read >/dev/null` and `pass show apps/manifest-sync/github/pull-request >/dev/null`, then start the service again. For unattended nightly runs, unlock at least once every 24 hours.
 
 ### 2. Write access: deploy key for Git
 
@@ -203,6 +190,25 @@ git -C ~/.local/share/manifest-sync config user.name kairin
 git -C ~/.local/share/manifest-sync config user.email 678459+kairin@users.noreply.github.com
 ```
 
+Give the tokens to the service with a drop-in file. A drop-in keeps `systemd/manifest-sync.service` unchanged. It runs the script through `with-secret` once for each token:
+
+```sh
+mkdir -p ~/.config/systemd/user/manifest-sync.service.d
+cat > ~/.config/systemd/user/manifest-sync.service.d/with-secret.conf <<'UNIT'
+[Service]
+ExecStart=
+ExecStart=%h/.local/bin/with-secret github/inventory-read -- %h/.local/bin/with-secret github/pull-request -- /usr/bin/python3 %h/.local/share/manifest-sync/scripts/sync_manifest.py --publish
+UNIT
+```
+
+Make sure that the read token can read the private repositories. The result must be the total number of repositories in the account:
+
+```sh
+cd ~/.local/share/manifest-sync
+with-secret github/inventory-read -- gh api --paginate 'user/repos?affiliation=owner&visibility=all&per_page=100' --jq '.[].id' | wc -l
+with-secret --check github/pull-request
+```
+
 Then do the steps in [Install after the changes are committed to GitHub](#install-after-the-changes-are-committed-to-github), but skip the `git clone` command. Enable lingering so the timer runs without a login:
 
 ```sh
@@ -222,4 +228,4 @@ loginctl enable-linger "$USER"
 
 2. On the old computer, make sure that the dedicated checkout has no unpublished commits. `git -C ~/.local/share/manifest-sync status -sb` must show `## main...origin/main` with no `ahead` count. Then you can delete `~/.local/share/manifest-sync`.
 3. Install on the new computer. Use [Headless computers](#headless-computers) if it has no desktop session.
-4. If the old computer used a deploy key, remove the key on GitHub (`gh repo deploy-key list -R kairin/000-0-manifest` and `gh repo deploy-key delete KEY-ID -R kairin/000-0-manifest`). Revoke its token in the GitHub token settings.
+4. If the old computer used a deploy key, remove the key on GitHub (`gh repo deploy-key list -R kairin/000-0-manifest` and `gh repo deploy-key delete KEY-ID -R kairin/000-0-manifest`). If the new computer uses new tokens, revoke the old tokens in the GitHub token settings. The `pass` entries can stay; `pass insert` replaces their values.
