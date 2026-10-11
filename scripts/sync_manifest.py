@@ -15,9 +15,12 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 FILES = ('README.md', 'PERSONAL-PROJECTS.md', 'ARCHIVED.md', 'FORKS.md')
 MESSAGE = 'docs: sync GitHub repository inventory'
-# Name prefixes that fix an active original's section. Forks (000-444-) and
-# archived repositories (000-999-) are placed by GitHub state, not by name.
-TIERS = {'000-111-': 'learning', '000-222-': 'personal', '000-333-': 'work'}
+# Name prefixes that fix an active original's section, longest match first.
+# Forks (000-444-) and archived repositories (000-999-) are placed by GitHub
+# state, not by name.
+TIERS = {'000-333-workday-': 'workday', '000-111-': 'learning', '000-222-': 'personal',
+         '000-333-': 'work'}
+ACTIVE = ('core', 'public', 'learning', 'personal', 'workday', 'work')
 CONFIG_CATEGORIES = frozenset(('personal', 'work', 'auto'))
 UNLISTED_PRIVATE_POLICIES = frozenset(('error', 'omit'))
 
@@ -88,7 +91,7 @@ def classify(pages, config):
     unlisted_private = validate_config(config)
     approved = config['repositories']
     account = config['account'].lower()
-    groups = {k: [] for k in ('core', 'public', 'learning', 'personal', 'work', 'archived', 'forks')}
+    groups = {k: [] for k in ACTIVE + ('archived', 'forks')}
     seen = set()
     omitted = 0
     for page in pages:
@@ -126,7 +129,7 @@ def classify(pages, config):
             elif repo['fork']:
                 group = 'forks'
             elif name.startswith(tuple(TIERS)):
-                group = TIERS[name[:8]]
+                group = next(TIERS[p] for p in TIERS if name.startswith(p))
             elif name.startswith('000-') and not name.startswith(('000-444-', '000-999-')):
                 group = 'public' if repo['visibility'] == 'public' else 'core'
             else:
@@ -193,12 +196,12 @@ def replace_once(pattern, replacement, text):
 
 def render(original, groups, account, today=None):
     total = sum(map(len, groups.values()))
-    active = sum(len(groups[k]) for k in ('core', 'public', 'learning', 'personal', 'work'))
+    active = sum(len(groups[k]) for k in ACTIVE)
     personal = len(groups['personal'])
     result = dict(original)
     result['README.md'] = replace_tables(original['README.md'], [
-        table(groups[k], account, description=k not in ('personal', 'work'))
-        for k in ('core', 'public', 'learning', 'personal', 'work')])
+        table(groups[k], account, description=k not in ('personal', 'workday', 'work'))
+        for k in ACTIVE])
     text = result['README.md']
     text = replace_once(r'\*\*Total: \d+ repositories', f'**Total: {total} repositories', text)
     text = replace_once(r'lists \d+ repositories across its tables \(\d+ of \d+\)',
