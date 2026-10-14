@@ -126,3 +126,30 @@ The tables and repository counts on this page, [PERSONAL-PROJECTS.md](PERSONAL-P
 | `docs/local-sync.md` | What the script does, installation, logs, headless setup, and troubleshooting |
 
 There is no GitHub Actions workflow. The sync runs on a computer where the systemd timer is installed. By default, a new private repository stops the sync until it has an entry in `inventory-config.json`; the explicit `unlisted_private: "omit"` policy excludes unlisted private or internal records from the published inventory and reports only their count. For the steps, see [docs/local-sync.md](docs/local-sync.md).
+
+## Core repository sync in `update`
+
+Updater **1.0.001** starts each normal run with the nine core repositories.
+It fetches remote `main` and advances local `main` only when a fast-forward
+is possible. It temporarily saves staged, unstaged and untracked changes in
+a local Git recovery snapshot. It restores the original working branch and
+local changes before it starts the next repository. Ignored files stay in
+place. It keeps the recovery snapshot and records incomplete restoration.
+
+This routine sync does not commit or push unfinished work. If a repository
+cannot sync or restore its local work, the command reports an incomplete
+result and stops before updater replacement or application updates. Existing
+merge operations, diverged history and unresolved recovery records need
+attention. The command does not discard local commits or force a reset.
+
+After all nine repositories sync and restore, the command checks published
+`update-v*` releases in `000-0-ai`. It installs newer updater code from the
+exact published tag, then restarts once with the original arguments. It does
+not install unreleased working tree code. Application updates run last.
+`--only` limits application updates, not the nine-repository sync.
+`--version` and `--check-self` remain local checks. `--dry-run` makes no changes.
+
+The owner release sequence is `1.0.001` through `1.0.999`, then `1.1.0`.
+This is the updater version scheme, not application version pinning.
+See the [shared update procedure](../000-0-ai/README.md#update-command) and
+[repository sync requirements](../000-0-workspace/docs/repository-protection.md#routine-core-sync-in-update).
