@@ -90,6 +90,13 @@ Incomplete checks or repairs block app updates. The local quality checker never 
 Only DNF repairs use `sudo -n`. Use `sudo -v` first when needed.
 If authorization expires, report the failure. Never run `sudo update`.
 
+## Workflow review follow-up
+
+Keep inventory facts separate from runtime assurance. Do not turn the manifest
+job into a doctor or installer. Preserve generated tables and the GitHub About
+description source. Link the dated workspace review when workflow ownership or
+acceptance evidence changes.
+
 ## Inventory metadata and maintenance commands
 
 Descriptions come from GitHub About. Do not edit generated rows by hand.
