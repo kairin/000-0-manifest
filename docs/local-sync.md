@@ -32,6 +32,34 @@ python3 -m unittest discover -s tests -v
 
 `--dry-run` is the default. `--check` exits 2 when content would change. `--write` updates only the four local pages without committing. Descriptions come from GitHub About, with Markdown characters escaped for safe table display. Missing descriptions use `—`. A changed date alone never creates an update.
 
+## Core description maintenance
+
+GitHub About is the source for generated repository descriptions.
+Do not edit a generated row to change a description. Change GitHub About,
+then preview the inventory sync. Keep the full procedures in the owning repos.
+
+The following wording reflects the new development tool system:
+
+| Core repo | Description |
+|---|---|
+| `000-0-ai` | Shared AI configuration and the update command for core repository sync, updater releases, development tool checks and application updates. |
+| `000-0-dotfiles` | Device setup guides and non-AI development tools: dev-doctor, dev-install and the shared tool catalog. |
+| `000-0-workspace` | Workspace layout, Git protection, local quality policy and the shared update startup procedure. |
+
+Keep GitHub About and the generated inventory consistent with these roles.
+No repository was added or renamed, so `inventory-config.json` needs no change.
+
+The nightly inventory job reads metadata and publishes inventory pages.
+The AI-owned `update` command syncs core repositories and runs tool maintenance.
+Neither process starts the other. The inventory job needs working Python,
+Git and authenticated GitHub CLI access. It does not call the doctor or installer,
+and it does not request sudo to repair its prerequisites.
+
+After an About change, run `python3 scripts/sync_manifest.py --dry-run`.
+Use the existing inventory delivery procedure to publish the generated changes.
+The startup guide and Mermaid diagram are outside the generated tables.
+The renderer preserves them during regeneration.
+
 ## What the script overwrites
 
 The script is not a general formatter. In `README.md`, `PERSONAL-PROJECTS.md`, `ARCHIVED.md`, and `FORKS.md` it replaces only these parts:

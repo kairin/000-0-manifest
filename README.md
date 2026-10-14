@@ -3,7 +3,7 @@
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-12.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-15.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
 **Total: 94 repositories in the published inventory.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 12 personal-project entries. Forks and archived repositories are listed in their own documents.
@@ -14,11 +14,11 @@ Private repositories with names beginning `000-` and no tier number (`111`, `222
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
-| [000-0-ai](https://github.com/kairin/000-0-ai) | Private | Original | Active | `main` | Stores shared AI tool settings, agent instructions and documentation so tools work consistently across computers. |
-| [000-0-dotfiles](https://github.com/kairin/000-0-dotfiles) | Private | Original | Active | `main` | Sets up consistent shell, terminal, Git, fonts and system tools across computers. |
+| [000-0-ai](https://github.com/kairin/000-0-ai) | Private | Original | Active | `main` | Shared AI configuration and the update command for core repository sync, updater releases, development tool checks and application updates. |
+| [000-0-dotfiles](https://github.com/kairin/000-0-dotfiles) | Private | Original | Active | `main` | Device setup guides and non-AI development tools: dev-doctor, dev-install and the shared tool catalog. |
 | [000-0-password](https://github.com/kairin/000-0-password) | Private | Original | Active | `main` | Gives each command only the secret it needs from an encrypted password store. |
 | [000-0-tables](https://github.com/kairin/000-0-tables) | Private | Original | Active | `main` | Defines the database stack and records database research, project usage and lessons for reuse across projects. |
-| [000-0-workspace](https://github.com/kairin/000-0-workspace) | Private | Original | Active | `main` | Keeps repositories in ~/Apps consistent with shared Git checks, project templates and a map of workspace rules. |
+| [000-0-workspace](https://github.com/kairin/000-0-workspace) | Private | Original | Active | `main` | Workspace layout, Git protection, local quality policy and the shared update startup procedure. |
 
 ## 2 - Tier 000 - Core, Public
 
@@ -127,9 +127,15 @@ The tables and repository counts on this page, [PERSONAL-PROJECTS.md](PERSONAL-P
 
 There is no GitHub Actions workflow. The sync runs on a computer where the systemd timer is installed. By default, a new private repository stops the sync until it has an entry in `inventory-config.json`; the explicit `unlisted_private: "omit"` policy excludes unlisted private or internal records from the published inventory and reports only their count. For the steps, see [docs/local-sync.md](docs/local-sync.md).
 
+The nightly inventory sync updates repository listings. It does not run
+`update`, install development tools or repair applications. The two processes
+are separate. Generated descriptions come from GitHub About. See
+[core description maintenance](docs/local-sync.md#core-description-maintenance)
+for the wording that reflects the new tool ownership.
+
 ## Core repository sync in `update`
 
-Updater **1.0.001** starts each normal run with the nine core repositories.
+Updater **1.0.002** starts each normal run with the nine core repositories.
 It fetches remote `main` and advances local `main` only when a fast-forward
 is possible. It temporarily saves staged, unstaged and untracked changes in
 a local Git recovery snapshot. It restores the original working branch and
@@ -153,3 +159,37 @@ The owner release sequence is `1.0.001` through `1.0.999`, then `1.1.0`.
 This is the updater version scheme, not application version pinning.
 See the [shared update procedure](../000-0-ai/README.md#update-command) and
 [repository sync requirements](../000-0-workspace/docs/repository-protection.md#routine-core-sync-in-update).
+
+## Update startup and automatic calls
+
+Run `update` as your normal user for routine maintenance. It calls the doctor
+and installer automatically when needed.
+
+```mermaid
+flowchart TD
+    A["update · 000-0-ai"] --> B["Sync nine core repos and restore local work"]
+    B --> C["Check published updater and restart if newer"]
+    C --> D["Check required dev tools · 000-0-dotfiles"]
+    D --> E["Repair missing or broken tools, then check again"]
+    E --> F["Update selected AI tools, Bash tools and Ghostty"]
+```
+
+This diagram shows the successful path. A failed sync, release check or tool
+repair stops the process before app updates. Healthy tools need no repair.
+
+| Need | Command |
+|---|---|
+| Routine maintenance | `update` |
+| Read-only tool check | `dev-doctor` |
+| Show a repair plan | `dev-install` |
+| Apply repairs | `dev-install --apply` |
+
+Only system-package repairs through DNF need sudo. If needed, run `sudo -v`
+first. Repairs use `sudo -n` and fail if authorization expires.
+Never run `sudo update`. User-owned binary and Ruff repairs need no sudo.
+
+`000-0-ai` owns the updater. `000-0-dotfiles` owns the doctor, installer and
+catalog. `000-0-workspace` owns the
+[full procedure](../000-0-workspace/docs/update-and-development-tools.md),
+including first setup, failure paths, preview limits and the ownership table.
+See [dotfiles](../000-0-dotfiles/README.md#development-tools) for tool details.
