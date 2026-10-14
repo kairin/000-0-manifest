@@ -193,3 +193,15 @@ catalog. `000-0-workspace` owns the
 [full procedure](../000-0-workspace/docs/update-and-development-tools.md),
 including first setup, failure paths, preview limits and the ownership table.
 See [dotfiles](../000-0-dotfiles/README.md#development-tools) for tool details.
+
+## Workflow review — 2026-10-15
+
+No manifest runtime defect was found. This repository inventories the nine core
+repositories; it does not prove updater, tool or application health. Generated
+inventory tables remain generated, and GitHub About remains the source for
+repository descriptions.
+
+When workflow ownership changes, update the authoritative repository
+description and the manifest source, regenerate the inventory, and link the
+owner's [adversarial workflow review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
+without copying its full findings here.
