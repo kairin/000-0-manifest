@@ -124,6 +124,7 @@ The tables and repository counts on this page, [PERSONAL-PROJECTS.md](PERSONAL-P
 | `systemd/` | Timer and service that run the script each night on one computer |
 | `tests/` | Unit tests for the script |
 | `docs/local-sync.md` | What the script does, installation, logs, headless setup, and troubleshooting |
+| `docs/game-families.md` | How the manifest treats game repositories such as `ABN-124-shooter`, and the planned sync change |
 
 There is no GitHub Actions workflow. The sync runs on a computer where the systemd timer is installed. By default, a new private repository stops the sync until it has an entry in `inventory-config.json`; the explicit `unlisted_private: "omit"` policy excludes unlisted private or internal records from the published inventory and reports only their count. For the steps, see [docs/local-sync.md](docs/local-sync.md).
 
