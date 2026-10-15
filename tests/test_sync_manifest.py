@@ -166,13 +166,12 @@ class InventoryTests(unittest.TestCase):
         self.assertEqual(groups['games'], [])
         self.assertEqual(omitted, 1)
 
-    def test_game_family_table_renders_without_description(self):
+    def test_game_family_table_renders_with_description(self):
         originals = {name: (ROOT / name).read_text() for name in sync.FILES}
-        rows = [repo(1, 'ABN-124-shooter', description='spoiler')]
+        rows = [repo(1, 'ABN-124-shooter', description='ABN family. Base game.')]
         groups, _ = sync.classify([rows], config(*rows))
         text = sync.render(originals, groups, 'kairin', '2026-10-15')['README.md']
-        self.assertIn('| [ABN-124-shooter](https://github.com/kairin/ABN-124-shooter) | Public | Original | Active | `main` |', text)
-        self.assertNotIn('spoiler', text)
+        self.assertIn('| [ABN-124-shooter](https://github.com/kairin/ABN-124-shooter) | Public | Original | Active | `main` | ABN family. Base game. |', text)
         self.assertIn('lists 1 repositories across its tables (1 of 1)', text)
 
     def test_order_and_missing_text_and_injection(self):

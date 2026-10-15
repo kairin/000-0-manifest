@@ -109,8 +109,8 @@ All other work projects, named `000-333-`. Every repository in this tier must be
 
 Game repositories, named `<FAMILY>-<NUMBER>-<mechanic>`, for example `ABN-124-shooter`. A game repository is private when it is made. A name does not give access to the contents. See [docs/game-families.md](docs/game-families.md).
 
-| Repository | Visibility | Type | State | Default branch |
-|---|---|---|---|---|
+| Repository | Visibility | Type | State | Default branch | Description |
+|---|---|---|---|---|---|
 
 ## 8 - Tier 444 - Forks
 
