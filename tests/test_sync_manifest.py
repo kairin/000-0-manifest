@@ -140,6 +140,41 @@ class InventoryTests(unittest.TestCase):
         with self.assertRaisesRegex(sync.SyncError, 'classification'):
             sync.classify([[repo(5, '000-999-back')]], config())
 
+    def test_game_family_routing(self):
+        rows = [repo(1, 'ABN-124-shooter', private=True, visibility='private'),
+                repo(2, 'ABN-685-wheel', private=True, visibility='private'),
+                repo(3, 'ABN-000-index'),
+                repo(4, 'ZQX-210-old', archived=True),
+                repo(5, 'ABN-999-copy', fork=True)]
+        cfg = config(*rows)
+        for rid in ('1', '2'):
+            cfg['repositories'][rid]['category'] = 'auto'
+        groups, omitted = sync.classify([rows], cfg)
+        self.assertEqual([r['name'] for r in groups['games']],
+                         ['ABN-000-index', 'ABN-124-shooter', 'ABN-685-wheel'])
+        self.assertEqual([r['name'] for r in groups['archived']], ['ZQX-210-old'])
+        self.assertEqual([r['name'] for r in groups['forks']], ['ABN-999-copy'])
+        self.assertEqual(omitted, 0)
+        # Names that break the game family rule are not games.
+        for name in ('abn-124-shooter', 'BON-124-x', '1BN-124-x', 'ABN-050-x',
+                     'ABN-124-Shooter', 'ABN-124--x', 'ABN-124-x-', 'ABN-12-x'):
+            with self.subTest(name=name), self.assertRaisesRegex(sync.SyncError, 'classification'):
+                sync.classify([[repo(9, name)]], config())
+        # An unlisted private game repository is omitted, as other private repositories.
+        hidden = repo(10, 'ABN-777-secret', private=True, visibility='private')
+        groups, omitted = sync.classify([[hidden]], config(unlisted_private='omit'))
+        self.assertEqual(groups['games'], [])
+        self.assertEqual(omitted, 1)
+
+    def test_game_family_table_renders_without_description(self):
+        originals = {name: (ROOT / name).read_text() for name in sync.FILES}
+        rows = [repo(1, 'ABN-124-shooter', description='spoiler')]
+        groups, _ = sync.classify([rows], config(*rows))
+        text = sync.render(originals, groups, 'kairin', '2026-10-15')['README.md']
+        self.assertIn('| [ABN-124-shooter](https://github.com/kairin/ABN-124-shooter) | Public | Original | Active | `main` |', text)
+        self.assertNotIn('spoiler', text)
+        self.assertIn('lists 1 repositories across its tables (1 of 1)', text)
+
     def test_order_and_missing_text_and_injection(self):
         rows = [repo(1, 'z'), repo(2, 'Alpha', description='<script>x</script> | [bad](url)\nnext')]
         groups, _ = sync.classify([rows], config(*rows))
