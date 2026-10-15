@@ -135,7 +135,7 @@ for the wording that reflects the new tool ownership.
 
 ## Core repository sync in `update`
 
-Updater **1.0.002** starts each normal run with the nine core repositories.
+Updater **1.0.004** starts each normal run with the nine core repositories.
 It fetches remote `main` and advances local `main` only when a fast-forward
 is possible. It temporarily saves staged, unstaged and untracked changes in
 a local Git recovery snapshot. It restores the original working branch and
@@ -208,7 +208,7 @@ without copying its full findings here.
 
 ## Office toolset and Node.js policy (2026-10-15)
 
-The office setup now uses updater `1.0.002` and development tools `1.0.002`.
+The earlier office setup used updater `1.0.002` and development tools `1.0.002`.
 The office work did not install or change the nightly inventory timer.
 The repository tables remain generated from GitHub metadata.
 The shared Node.js LTS policy belongs to the toolset, not the inventory job.
