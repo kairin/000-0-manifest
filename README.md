@@ -205,3 +205,12 @@ When workflow ownership changes, update the authoritative repository
 description and the manifest source, regenerate the inventory, and link the
 owner's [adversarial workflow review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
 without copying its full findings here.
+
+## Office toolset and Node.js policy (2026-10-15)
+
+The office setup now uses updater `1.0.002` and development tools `1.0.002`.
+The office work did not install or change the nightly inventory timer.
+The repository tables remain generated from GitHub metadata.
+The shared Node.js LTS policy belongs to the toolset, not the inventory job.
+
+See the [office installation record and shared version policy](../000-0-workspace/docs/office-toolset-2026-10-15.md).
