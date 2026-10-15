@@ -105,11 +105,18 @@ All other work projects, named `000-333-`. Every repository in this tier must be
 | [000-333-vba-scripts](https://github.com/kairin/000-333-vba-scripts) | Private | Original | Active | `main` |
 | [000-333-WOG-Ref](https://github.com/kairin/000-333-WOG-Ref) | Private | Original | Active | `main` |
 
-## 7 - Tier 444 - Forks
+## 7 - Game families
+
+Game repositories, named `<FAMILY>-<NUMBER>-<mechanic>`, for example `ABN-124-shooter`. A game repository is private when it is made. A name does not give access to the contents. See [docs/game-families.md](docs/game-families.md).
+
+| Repository | Visibility | Type | State | Default branch |
+|---|---|---|---|---|
+
+## 8 - Tier 444 - Forks
 
 Forked repositories are listed separately in [FORKS.md](FORKS.md).
 
-## 8 - Tier 999 - Archived
+## 9 - Tier 999 - Archived
 
 Archived repositories are listed in [ARCHIVED.md](ARCHIVED.md).
 

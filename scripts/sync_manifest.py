@@ -25,7 +25,10 @@ PR_TOKEN = 'MANIFEST_SYNC_PR_TOKEN'
 # state, not by name.
 TIERS = {'000-333-workday-': 'workday', '000-111-': 'learning', '000-222-': 'personal',
          '000-333-': 'work'}
-ACTIVE = ('core', 'public', 'learning', 'personal', 'workday', 'work')
+# Game family names: 000-0-workspace/docs/game-family-naming.md. They start
+# with a letter, so they cannot match a numeric tier prefix.
+GAME_FAMILY = re.compile(r'[A-HJ-NP-Z][0-9A-HJ-NP-Z]{2}-(000|[1-9][0-9]{2})-[a-z0-9]+(-[a-z0-9]+)*')
+ACTIVE = ('core', 'public', 'learning', 'personal', 'workday', 'work', 'games')
 CONFIG_CATEGORIES = frozenset(('personal', 'work', 'auto'))
 UNLISTED_PRIVATE_POLICIES = frozenset(('error', 'omit'))
 
@@ -133,6 +136,8 @@ def classify(pages, config):
                 group = 'archived'
             elif repo['fork']:
                 group = 'forks'
+            elif GAME_FAMILY.fullmatch(name):
+                group = 'games'
             elif name.startswith(tuple(TIERS)):
                 group = next(TIERS[p] for p in TIERS if name.startswith(p))
             elif name.startswith('000-') and not name.startswith(('000-444-', '000-999-')):
@@ -205,7 +210,7 @@ def render(original, groups, account, today=None):
     personal = len(groups['personal'])
     result = dict(original)
     result['README.md'] = replace_tables(original['README.md'], [
-        table(groups[k], account, description=k not in ('personal', 'workday', 'work'))
+        table(groups[k], account, description=k not in ('personal', 'workday', 'work', 'games'))
         for k in ACTIVE])
     text = result['README.md']
     text = replace_once(r'\*\*Total: \d+ repositories', f'**Total: {total} repositories', text)

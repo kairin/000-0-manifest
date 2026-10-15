@@ -30,39 +30,36 @@ A game repository is private when it is made, as all other repositories. The
 manifest shows the names of private repositories. A name does not give access
 to the contents. Only the owner gives access.
 
-## Current state of the sync
+## How the sync lists game repositories
 
-`scripts/sync_manifest.py` does not know game families yet.
+`scripts/sync_manifest.py` puts a game repository in section 7, "Game
+families", of `README.md`. The order of the checks is:
 
-- A private game repository without an entry in `inventory-config.json` does
-  not show in the manifest. The sync gives no warning.
-- A game repository with an entry stops the sync with this error:
-
-  ```
-  Repository requires personal/work classification
-  ```
-
-  The categories `personal` and `work` stop the error, but the manifest then
-  shows the game in the wrong section. Do not use them for a game repository.
-
-Do not make a game repository on GitHub before the sync supports game
-families. After the change, give each private game repository an entry with
-the category `auto` in `inventory-config.json`. The sync then puts it in the
-games section by its name.
-
-## Planned change
-
-These changes are not made yet. They need an owner decision.
-
-1. Classify a name that matches the game family pattern as `games`:
+1. An archived repository goes to the archive, also a game repository.
+2. A fork goes to the forks.
+3. A name that matches the game family pattern goes to "Game families":
 
    ```
    ^[A-HJ-NP-Z][0-9A-HJ-NP-Z]{2}-(000|[1-9][0-9]{2})-[a-z0-9]+(-[a-z0-9]+)*$
    ```
 
-2. Add `games` to `ACTIVE` in `scripts/sync_manifest.py`.
-3. Add a "Games" section with a `| Repository |` table to `README.md`. The
-   sync replaces each `| Repository |` table in order. If the number of tables
-   is not the same as the number of groups in `ACTIVE`, the sync stops with
-   "Page layout changed: unexpected number of tables".
-4. Add tests for the new group in `tests/`.
+4. Other names follow the tier prefixes.
+
+The table does not show the GitHub About description of a game repository.
+The description can contain a hint for a puzzle.
+
+## Make a game repository
+
+A game repository is private when it is made. The manifest does not show an
+unlisted private repository, and gives no warning. So, for each new private
+game repository:
+
+1. Make the repository on GitHub.
+2. Add an entry to `inventory-config.json` with its numeric REST API `id`,
+   its name, and the category `auto`.
+3. Run `python3 scripts/sync_manifest.py --dry-run`. The repository shows in
+   "Game families".
+
+Do not use the category `personal` or `work` for a game repository. A name
+that does not match the pattern, for example `ABN-050-x`, stops the sync with
+"Repository requires personal/work classification".
