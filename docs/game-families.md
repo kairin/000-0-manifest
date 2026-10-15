@@ -45,8 +45,12 @@ families", of `README.md`. The order of the checks is:
 
 4. Other names follow the tier prefixes.
 
-The table does not show the GitHub About description of a game repository.
-The description can contain a hint for a puzzle.
+The table shows the GitHub About description of each game repository. The
+manifest is public, so the description must contain only general data: the
+family code and the type of repository. For example: "ABN family. Base
+game." or "ABN family. Downloadable content." Do not describe the game
+mechanics, the rules, a puzzle, a key, the story or other contents of a
+private repository.
 
 ## Make a game repository
 

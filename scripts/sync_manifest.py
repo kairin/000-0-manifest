@@ -210,7 +210,7 @@ def render(original, groups, account, today=None):
     personal = len(groups['personal'])
     result = dict(original)
     result['README.md'] = replace_tables(original['README.md'], [
-        table(groups[k], account, description=k not in ('personal', 'workday', 'work', 'games'))
+        table(groups[k], account, description=k not in ('personal', 'workday', 'work'))
         for k in ACTIVE])
     text = result['README.md']
     text = replace_once(r'\*\*Total: \d+ repositories', f'**Total: {total} repositories', text)
