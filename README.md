@@ -2,6 +2,15 @@
 
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
 
+```mermaid
+flowchart TD
+    A["GitHub repository metadata and About descriptions"] --> B["sync_manifest.py"]
+    C["inventory-config.json approved IDs and categories"] --> B
+    D["Local systemd timer"] --> B
+    B --> E["README, PERSONAL-PROJECTS, FORKS and ARCHIVED tables"]
+    E --> F["Pull request and merge"]
+```
+
 GitHub account: [@kairin](https://github.com/kairin)<br>
 Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-15.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
