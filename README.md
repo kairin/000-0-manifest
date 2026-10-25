@@ -15,7 +15,7 @@ GitHub account: [@kairin](https://github.com/kairin)<br>
 Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-25.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 94 repositories in the published inventory.** This README lists 52 repositories across its tables (52 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 12 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 94 repositories in the published inventory.** This README lists 50 repositories across its tables (50 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 10 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core, Private
 
@@ -61,12 +61,10 @@ Personal projects — just for fun. Public or private as the Visibility column s
 | [000-222-codex-playwright-cdp](https://github.com/kairin/000-222-codex-playwright-cdp) | Private | Original | Active | `main` |
 | [000-222-comfyui-rtx5090](https://github.com/kairin/000-222-comfyui-rtx5090) | Private | Original | Active | `main` |
 | [000-222-enom-projects](https://github.com/kairin/000-222-enom-projects) | Private | Original | Active | `main` |
-| [000-222-graph-obsidian](https://github.com/kairin/000-222-graph-obsidian) | Private | Original | Active | `main` |
 | [000-222-image-tools](https://github.com/kairin/000-222-image-tools) | Private | Original | Active | `main` |
 | [000-222-my-comfyui-nodes](https://github.com/kairin/000-222-my-comfyui-nodes) | Public | Original | Active | `main` |
 | [000-222-predict-c](https://github.com/kairin/000-222-predict-c) | Private | Original | Active | `main` |
 | [000-222-rust-feh](https://github.com/kairin/000-222-rust-feh) | Public | Original | Active | `main` |
-| [000-222-self-evolving-agentic-graph-memory-engine](https://github.com/kairin/000-222-self-evolving-agentic-graph-memory-engine) | Private | Original | Active | `main` |
 
 Descriptions and details are in [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md).
 

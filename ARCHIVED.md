@@ -1,10 +1,12 @@
 # 9 - Tier 999 - Archived
 
-All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks. This table lists 38 archived repositories out of 94 repositories in the GitHub account.
+All repositories marked archived in the GitHub inventory, separated from the active listings. Forks remain identified as forks. This table lists 40 archived repositories out of 94 repositories in the GitHub account.
 
 | Repository | Visibility | Type | State | Default branch | Description |
 |---|---|---|---|---|---|
 | [000-333-OG-tools-archive](https://github.com/kairin/000-333-OG-tools-archive) | Private | Original | Archived | `main` | Private tooling repo |
+| [000-999-graph-obsidian](https://github.com/kairin/000-999-graph-obsidian) | Private | Original | Archived | `main` | Free, self-hosted Obsidian knowledge stack: concept graph plugin, GraphRAG sidecar, gap-driven workflows. Works across Claude Code, Codex CLI, Gemini CLI, and GitHub Copilot. |
+| [000-999-self-evolving-agentic-graph-memory-engine](https://github.com/kairin/000-999-self-evolving-agentic-graph-memory-engine) | Private | Original | Archived | `main` | Self-evolving agentic graph memory engine |
 | [000-999-workday-automation-learning](https://github.com/kairin/000-999-workday-automation-learning) | Public | Original | Archived | `main` | Explores Rust browser shells and semantic browser automation so LLMs can inspect pages, operate controls and verify results. |
 | [agents](https://github.com/kairin/agents) | Private | Original | Archived | `main` | — |
 | [broadcast](https://github.com/kairin/broadcast) | Public | Original | Archived | `main` | broadcast |
