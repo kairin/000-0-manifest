@@ -12,10 +12,10 @@ flowchart TD
 ```
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-15.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-10-25.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 94 repositories in the published inventory.** This README lists 53 repositories across its tables (53 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 12 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 94 repositories in the published inventory.** This README lists 52 repositories across its tables (52 of 94); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 12 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core, Private
 
@@ -48,7 +48,6 @@ Learning projects, public or private as the Visibility column shows.
 |---|---|---|---|---|---|
 | [000-111-learn](https://github.com/kairin/000-111-learn) | Public | Original | Active | `main` | Teaches Assembly and Fortran through small game tutorials to build fast programs that run close to the hardware. |
 | [000-111-multi-agent-orchestration-learning](https://github.com/kairin/000-111-multi-agent-orchestration-learning) | Public | Original | Active | `main` | Learning resource for decomposing tasks, coordinating multiple agents, and reviewing handoffs, verification, and integration through historical case studies. Documentation only. |
-| [000-111-workday-automation-learning](https://github.com/kairin/000-111-workday-automation-learning) | Public | Original | Active | `main` | Explores Rust browser shells and semantic browser automation so LLMs can inspect pages, operate controls and verify results. |
 
 ## 4 - Tier 222 - Personal
 
