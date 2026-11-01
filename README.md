@@ -221,7 +221,7 @@ repository descriptions.
 
 When workflow ownership changes, update the authoritative repository
 description and the manifest source, then regenerate the inventory. The
-[dated workspace review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
+[dated workspace review](https://github.com/kairin/000-0-workspace/blob/86d01c4b3db6edffbaa92a426b117fd30d6cee3e/docs/update-workflow-review-2026-10-15.md)
 holds earlier evidence. The handover above is the current proposed work list.
 
 ## Office toolset and Node.js policy (2026-10-15)
