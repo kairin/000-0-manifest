@@ -1,3 +1,47 @@
+```mermaid
+flowchart TB
+    subgraph Rules["Rules and navigation"]
+        W["000-0-workspace<br/>Shared policies, procedures and architecture"]
+        M["000-0-manifest<br/>Repository inventory and status"]
+        S["000-0-ASD-STE100<br/>Writing standards and prose checker"]
+    end
+
+    subgraph Operations["Machine setup and automation"]
+        A["000-0-ai<br/>AI configuration, skills, safeguards<br/>and update command"]
+        D["000-0-dotfiles<br/>Machine and Bash setup<br/>Development-tool catalog, doctor and installer"]
+        P["000-0-password<br/>Encrypted secrets and with-secret"]
+    end
+
+    subgraph Specialist["Terminal and database guidance"]
+        G["000-0-ghostty<br/>Terminal configuration and integration"]
+        TM["000-0-tmux-cheat-sheet<br/>Persistent terminal and agent sessions"]
+        T["000-0-tables<br/>Database stack, research and reusable patterns"]
+    end
+
+    W -. "shared policies" .-> Operations
+    W -. "shared policies" .-> Specialist
+    M -. "links to responsibility map" .-> W
+    S -. "writing standards" .-> W
+    S -. "source for ste-writing skill" .-> A
+
+    A -->|"calls development-tool checks and repairs"| D
+    A -->|"builds Ghostty and checks configuration"| G
+
+    D -. "Bash integration and fonts" .-> G
+    D -. "provides tmux" .-> TM
+    TM -. "guidance for running agent sessions" .-> A
+
+    P -. "secrets when required" .-> A
+    P -. "credentials when required" .-> T
+```
+
+## Core repository connections
+
+Solid arrows show operational connections. Dotted arrows show guidance, navigation, or support.
+
+
+Workspace policies and STE writing rules apply to all nine core repositories. The manifest lists all nine.
+
 # GitHub Repository Manifest
 
 Tracks repositories in the kairin GitHub account by tier, purpose, and status. A [local scheduled sync](docs/local-sync.md) refreshes descriptions and other GitHub metadata nightly, then catches up after startup when the computer missed a run.
@@ -147,31 +191,28 @@ are separate. Generated descriptions come from GitHub About. See
 [core description maintenance](docs/local-sync.md#core-description-maintenance)
 for the wording that reflects the new tool ownership.
 
+GitHub About text is a repository description snapshot, not proof of platform
+support. Ghostty's approved user Flatpak route covers RHEL and Fedora Asahi.
+The Ubuntu release and CPU remain unknown. See the [current update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md).
+
 ## Core repository sync in `update`
 
 Read the [shared update procedure](../000-0-workspace/docs/update-and-development-tools.md)
 and [repository protection requirements](../000-0-workspace/docs/repository-protection.md).
 They are instructions to read before maintenance work.
 
-## Update startup and automatic calls
+## Current update guidance
 
-Run `update` as your normal user for routine maintenance. It calls the doctor
-and installer automatically when needed.
+Read the [shared maintenance procedure](../000-0-workspace/docs/update-and-development-tools.md)
+for the current update sequence, permissions, and failure behavior. The
+[universal update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md)
+tracks proposed cross-platform and Linux font work. It does not mean that this
+work is implemented. Read [repository protection](../000-0-workspace/docs/repository-protection.md)
+before maintenance work.
 
-```mermaid
-flowchart TD
-    A["update · 000-0-ai"] --> B["Sync nine core repos and restore local work"]
-    B --> C["Check published updater and restart if newer"]
-    C --> D["Check required dev tools · 000-0-dotfiles"]
-    D --> E["Repair missing or broken tools, then check again"]
-    E --> F["Update selected AI tools, Bash tools and Ghostty"]
-```
+## Historical workflow note — 2026-10-15
 
-Read `../000-0-workspace/docs/update-and-development-tools.md` for commands,
-repair rules, ownership, and failure paths. Also read
-`../000-0-workspace/docs/repository-protection.md` before maintenance work.
-
-## Workflow review — 2026-10-15
+This note records the earlier review. It is not an active task list.
 
 No manifest runtime defect was found. This repository inventories the nine core
 repositories; it does not prove updater, tool or application health. Generated
@@ -179,9 +220,9 @@ inventory tables remain generated, and GitHub About remains the source for
 repository descriptions.
 
 When workflow ownership changes, update the authoritative repository
-description and the manifest source, regenerate the inventory, and link the
-owner's [adversarial workflow review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
-without copying its full findings here.
+description and the manifest source, then regenerate the inventory. The
+[dated workspace review](../000-0-workspace/docs/update-workflow-review-2026-10-15.md)
+holds earlier evidence. The handover above is the current proposed work list.
 
 ## Office toolset and Node.js policy (2026-10-15)
 
