@@ -246,10 +246,6 @@
       "name": "choosing-a-database-2026",
       "category": "auto"
     },
-    "910696685": {
-      "name": "comf-agx-orin",
-      "category": "auto"
-    },
     "875074546": {
       "name": "comfui",
       "category": "auto"
@@ -278,14 +274,6 @@
       "name": "getfrozen",
       "category": "auto"
     },
-    "946227702": {
-      "name": "gitg",
-      "category": "auto"
-    },
-    "1006373345": {
-      "name": "google-gemini-codes",
-      "category": "auto"
-    },
     "964863915": {
       "name": "HiDream-I1",
       "category": "auto"
@@ -310,16 +298,8 @@
       "name": "jetc",
       "category": "auto"
     },
-    "966176438": {
-      "name": "jetson-containers",
-      "category": "auto"
-    },
     "981401323": {
       "name": "learn_insightface",
-      "category": "auto"
-    },
-    "882321684": {
-      "name": "linformer",
       "category": "auto"
     },
     "1059764015": {
@@ -350,10 +330,6 @@
       "name": "SageAttention",
       "category": "auto"
     },
-    "900181613": {
-      "name": "stable-diffusion-webui-forge",
-      "category": "auto"
-    },
     "1075341230": {
       "name": "supplier-invoices",
       "category": "auto"
@@ -362,20 +338,16 @@
       "name": "tegon",
       "category": "auto"
     },
-    "1099746173": {
-      "name": "ubuntu-video-playback",
-      "category": "auto"
-    },
-    "1039034828": {
-      "name": "Vizy-Unsupported-Remake",
-      "category": "auto"
-    },
-    "1098177758": {
-      "name": "win-qemu",
-      "category": "auto"
-    },
     "1106801713": {
       "name": "win-qemu-docs",
+      "category": "auto"
+    },
+    "1443924398": {
+      "name": "000-111-adlc-demo-app",
+      "category": "auto"
+    },
+    "1443924665": {
+      "name": "000-111-adlc-triage-agent",
       "category": "auto"
     }
   }
