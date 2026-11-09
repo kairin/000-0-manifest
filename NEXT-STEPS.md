@@ -16,12 +16,3 @@ Each item needs an owner decision. Remove an item when it is resolved.
       2026-10-12 that it stays public as a tool for anyone, with no personal
       or work details. The repository files are clean; the remaining items
       are on GitHub and need the owner. Details are in the owner's notes.
-- [ ] Archived repositories with open Dependabot pull requests. Archived
-      repositories are read-only. To close a pull request, unarchive the
-      repository, close it, and archive the repository again:
-      `MetaSpec-Kyocera` #10, `win-qemu` #2, `google-gemini-codes` #6,
-      `stable-diffusion-webui-forge` #1.
-- [ ] Archived repositories whose default branch is not `main`: `master` in
-      `comf-agx-orin`, `gitg`, `linformer`, `ubuntu-video-playback` and
-      `Vizy-Unsupported-Remake`; `main-kairin` in `jetson-containers`. Decide
-      whether to leave them as they are.
