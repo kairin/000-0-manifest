@@ -43,7 +43,7 @@ The following wording reflects the new development tool system:
 | Core repo | Description |
 |---|---|
 | `000-0-ai` | Shared AI configuration and the update command for core repository sync, updater releases, development tool checks and application updates. |
-| `000-0-dotfiles` | Device setup guides and non-AI development tools: dev-doctor, dev-install and the shared tool catalog. |
+| `000-0-dotfiles` | Device setup guides and non-AI development tools: the `local-bin/dev-tools.py` helper (`dev-doctor` and `dev-install` commands) and the shared tool catalog. |
 | `000-0-workspace` | Workspace layout, Git protection, local quality policy and the shared update startup procedure. |
 
 Keep GitHub About and the generated inventory consistent with these roles.
