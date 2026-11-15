@@ -56,10 +56,10 @@ flowchart TD
 ```
 
 GitHub account: [@kairin](https://github.com/kairin)<br>
-Inventory retrieved with GitHub CLI (`gh api`) on 2026-11-09.<br>
+Inventory retrieved with GitHub CLI (`gh api`) on 2026-11-15.<br>
 Repositories are sorted alphabetically by repository name (case-insensitive).
 
-**Total: 87 repositories in the published inventory.** This README lists 50 repositories across its tables (50 of 87); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 10 personal-project entries. Forks and archived repositories are listed in their own documents.
+**Total: 88 repositories in the published inventory.** This README lists 51 repositories across its tables (51 of 88); [PERSONAL-PROJECTS.md](PERSONAL-PROJECTS.md) provides descriptions for the 10 personal-project entries. Forks and archived repositories are listed in their own documents.
 
 ## 1 - Tier 000 - Core, Private
 
@@ -151,6 +151,7 @@ All other work projects, named `000-333-`. Every repository in this tier must be
 | [000-333-pst-eml-not-done](https://github.com/kairin/000-333-pst-eml-not-done) | Private | Original | Active | `main` |
 | [000-333-screenforge-d002](https://github.com/kairin/000-333-screenforge-d002) | Private | Original | Active | `main` |
 | [000-333-screenforge-signage](https://github.com/kairin/000-333-screenforge-signage) | Private | Original | Active | `main` |
+| [000-333-sign-off](https://github.com/kairin/000-333-sign-off) | Private | Original | Active | `main` |
 | [000-333-stay-up](https://github.com/kairin/000-333-stay-up) | Public | Original | Active | `main` |
 | [000-333-vba-scripts](https://github.com/kairin/000-333-vba-scripts) | Private | Original | Active | `main` |
 | [000-333-WOG-Ref](https://github.com/kairin/000-333-WOG-Ref) | Private | Original | Active | `main` |
