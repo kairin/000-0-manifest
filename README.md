@@ -25,7 +25,7 @@ flowchart TB
     S -. "source for ste-writing skill" .-> A
 
     A -->|"calls development-tool checks and repairs"| D
-    A -->|"builds Ghostty and checks configuration"| G
+    A -->|"builds Ghostty, installs Kitty and checks configuration"| G
 
     D -. "Bash integration and fonts" .-> G
     D -. "provides tmux" .-> TM
@@ -194,7 +194,7 @@ for the wording that reflects the new tool ownership.
 
 GitHub About text is a repository description snapshot, not proof of platform
 support. Ghostty's approved user Flatpak route covers RHEL and Fedora Asahi.
-The Ubuntu release and CPU remain unknown. See the [current update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md).
+The Ubuntu release and CPU remain unknown. See the [dated update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md) for the earlier plan.
 
 ## Core repository sync in `update`
 
@@ -207,8 +207,8 @@ They are instructions to read before maintenance work.
 Read the [shared maintenance procedure](../000-0-workspace/docs/update-and-development-tools.md)
 for the current update sequence, permissions, and failure behavior. The
 [universal update handover](../000-0-ai/docs/operations/universal-update-handover-2026-10-31.md)
-tracks proposed cross-platform and Linux font work. It does not mean that this
-work is implemented. Read [repository protection](../000-0-workspace/docs/repository-protection.md)
+is a dated plan. Most of it shipped (fonts since 1.0.020). Current status is in
+`000-0-workspace` `docs/update-and-development-tools.md`. Read [repository protection](../000-0-workspace/docs/repository-protection.md)
 before maintenance work.
 
 ## Historical workflow note — 2026-10-15
@@ -223,7 +223,7 @@ repository descriptions.
 When workflow ownership changes, update the authoritative repository
 description and the manifest source, then regenerate the inventory. The
 [dated workspace review](https://github.com/kairin/000-0-workspace/blob/86d01c4b3db6edffbaa92a426b117fd30d6cee3e/docs/update-workflow-review-2026-10-15.md)
-holds earlier evidence. The handover above is the current proposed work list.
+holds earlier evidence. The handover above is a dated plan; current status is in the shared maintenance procedure.
 
 ## Office toolset and Node.js policy (2026-10-15)
 
